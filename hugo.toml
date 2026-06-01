@@ -1,0 +1,41 @@
+baseURL = "https://donghyunj.github.io/"
+languageCode = "ko-kr"
+title = "정동현 | Backend Developer"
+theme = "PaperMod"
+
+[params]
+  defaultTheme = "auto"        # 다크/라이트 자동
+  mainSections = ["posts"]
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true   # 코드 블록 복사 버튼
+  ShowToc = true               # 목차 (노션 느낌)
+  TocOpen = false
+
+  [params.homeInfoParams]
+    Title = "정동현 · Backend Developer"
+    Content = "Java · Spring Boot · Kubernetes · Kafka · Redis를 다루는 백엔드 개발자입니다."
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/DongHyunj"
+  [[params.socialIcons]]
+    name = "blog"
+    url = "https://donghyun0826.tistory.com"
+
+[[menu.main]]
+  identifier = "projects"
+  name = "Projects"
+  url = "/projects/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "about"
+  name = "About"
+  url = "/about/"
+  weight = 20
+
+[markup.highlight]
+  noClasses = false            # 코드 하이라이트 테마 적용용
+  style = "github"
