@@ -38,15 +38,15 @@ theme = "PaperMod"
   weight = 20
 
 [[menu.main]]
-  identifier = "tech"
-  name = "Tech"
-  url = "/#tech"
-  weight = 30
-
-[[menu.main]]
   identifier = "projects"
   name = "Projects"
   url = "/#projects"
+  weight = 30
+
+[[menu.main]]
+  identifier = "tech"
+  name = "Tech"
+  url = "/#tech"
   weight = 40
 
 [[menu.main]]

@@ -1,0 +1,186 @@
+{{ define "main" }}
+<style>
+    .pd {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 22px 80px;
+    }
+    .pd-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin: 22px 0 26px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--secondary);
+        text-decoration: none;
+        transition: color 0.15s ease;
+    }
+    .pd-back:hover {
+        color: var(--accent);
+    }
+    .pd-banner {
+        height: 170px;
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 800;
+        font-size: 2.1rem;
+        letter-spacing: 0.05em;
+        color: #fff;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(99, 102, 241, 0.85));
+    }
+    .pd-banner.pink {
+        background: linear-gradient(135deg, rgba(236, 72, 153, 0.85), rgba(139, 92, 246, 0.85));
+    }
+    .pd-cover {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+    }
+    .pd h1 {
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin: 1.5rem 0 0.5rem;
+    }
+    .pd-summary {
+        color: var(--content);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        margin: 0 0 1rem;
+    }
+    .pd-meta {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.82rem;
+        color: var(--secondary);
+        margin-bottom: 1.1rem;
+    }
+    .pd-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin: 0 0 1.5rem;
+    }
+    .pd-tags span {
+        background: var(--accent-soft);
+        color: var(--accent-2);
+        padding: 0.25rem 0.65rem;
+        border-radius: 7px;
+        font-size: 0.76rem;
+        font-weight: 500;
+        font-family: 'JetBrains Mono', monospace;
+    }
+    .pd-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin: 0 0 2.2rem;
+        padding-bottom: 2.2rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .pd-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.62rem 1.2rem;
+        border-radius: 11px;
+        font-weight: 600;
+        font-size: 0.92rem;
+        text-decoration: none;
+        border: 1px solid var(--border);
+        transition: all 0.18s ease;
+    }
+    .pd-btn.primary {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+    }
+    .pd-btn.primary:hover {
+        background: #2563eb;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 26px -10px rgba(59, 130, 246, 0.75);
+    }
+    .pd-btn.ghost {
+        color: var(--primary);
+    }
+    .pd-btn.ghost:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-2px);
+    }
+    .pd-content {
+        line-height: 1.85;
+        color: var(--content);
+    }
+    .pd-content h2 {
+        font-size: 1.4rem;
+        margin: 2.2rem 0 0.8rem;
+        padding-bottom: 0.45rem;
+        border-bottom: 1px solid var(--border);
+        color: var(--primary);
+    }
+    .pd-content h3 {
+        font-size: 1.1rem;
+        margin: 1.5rem 0 0.5rem;
+        color: var(--primary);
+    }
+    .pd-content ul {
+        padding-left: 1.2rem;
+    }
+    .pd-content li {
+        margin: 0.4rem 0;
+    }
+    .pd-content code {
+        background: var(--code-bg);
+        padding: 0.08rem 0.38rem;
+        border-radius: 5px;
+        font-size: 0.85em;
+    }
+    .pd-content strong {
+        color: var(--primary);
+    }
+    .pd-content a {
+        color: var(--accent-2);
+    }
+</style>
+
+<article class="pd">
+    <a class="pd-back" href="/#projects">← Projects</a>
+
+    {{- $base := printf "images/projects/%s" .File.BaseFileName -}}
+    {{- $cover := or (resources.Get (print $base ".png")) (resources.Get (print $base ".jpg")) (resources.Get (print $base ".webp")) (resources.Get (print $base ".jpeg")) -}}
+    {{- if $cover }}
+    <img class="pd-cover" src="{{ $cover.RelPermalink }}" alt="{{ .Title }} 대표 이미지">
+    {{- else }}
+    <div class="pd-banner{{ if eq .Params.accent "pink" }} pink{{ end }}">{{ .Title }}</div>
+    {{- end }}
+
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.summary }}<p class="pd-summary">{{ . }}</p>{{ end }}
+    <div class="pd-meta">
+        {{- with .Params.role }}{{ . }}{{ end -}}
+        {{- if and .Params.role .Params.period }} · {{ end -}}
+        {{- with .Params.period }}{{ . }}{{ end -}}
+    </div>
+
+    {{ with .Params.tech }}
+    <div class="pd-tags">{{ range . }}<span>{{ . }}</span>{{ end }}</div>
+    {{ end }}
+
+    {{ if or .Params.demo .Params.repo }}
+    <div class="pd-links">
+        {{ with .Params.demo }}<a class="pd-btn primary" href="{{ . }}" target="_blank" rel="noopener">🔗 Live Demo</a>{{ end }}
+        {{ with .Params.repo }}<a class="pd-btn ghost" href="{{ . }}" target="_blank" rel="noopener">GitHub</a>{{ end }}
+    </div>
+    {{ end }}
+
+    <div class="pd-content">
+        {{ .Content }}
+    </div>
+</article>
+{{ end }}

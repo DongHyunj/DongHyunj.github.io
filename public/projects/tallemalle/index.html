@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ko" dir="auto" data-theme="dark">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>TalleMalle | 정동현 | Backend Developer</title>
+<meta name="keywords" content="">
+<meta name="description" content="같은 방향으로 이동하는 사용자끼리 택시비를 분담하도록 매칭해주는 실시간 위치 기반 동승 매칭 커뮤니티 서비스">
+<meta name="author" content="">
+<link rel="canonical" href="https://donghyunj.github.io/projects/tallemalle/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.f9a0ca057f4d9a9dc0fd2f0aace65c2546833dd82b3379d3d53a05d19ed204e9.css" integrity="sha256-&#43;aDKBX9Nmp3A/S8KrOZcJUaDPdgrM3nT1ToF0Z7SBOk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://donghyunj.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://donghyunj.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://donghyunj.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://donghyunj.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://donghyunj.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="ko" href="https://donghyunj.github.io/projects/tallemalle/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta property="og:url" content="https://donghyunj.github.io/projects/tallemalle/">
+  <meta property="og:site_name" content="정동현 | Backend Developer">
+  <meta property="og:title" content="TalleMalle">
+  <meta property="og:description" content="같은 방향으로 이동하는 사용자끼리 택시비를 분담하도록 매칭해주는 실시간 위치 기반 동승 매칭 커뮤니티 서비스">
+  <meta property="og:locale" content="ko_kr">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2026-03-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-03-15T00:00:00+00:00">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="TalleMalle">
+  <meta name="twitter:description" content="같은 방향으로 이동하는 사용자끼리 택시비를 분담하도록 매칭해주는 실시간 위치 기반 동승 매칭 커뮤니티 서비스">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Projects",
+      "item": "https://donghyunj.github.io/projects/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "TalleMalle",
+      "item": "https://donghyunj.github.io/projects/tallemalle/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "TalleMalle",
+  "name": "TalleMalle",
+  "description": "같은 방향으로 이동하는 사용자끼리 택시비를 분담하도록 매칭해주는 실시간 위치 기반 동승 매칭 커뮤니티 서비스",
+  "keywords": [
+    
+  ],
+  "articleBody": "개요 같은 방향으로 이동하는 사용자끼리 택시비를 분담하도록 실시간으로 매칭해주는 위치 기반 동승 매칭 커뮤니티 서비스입니다. 출발지·도착지가 비슷한 사용자를 묶어 동승 모집글을 만들고, 실시간 채팅으로 빠르게 약속을 잡을 수 있습니다.\n주요 기능 위치 기반 동승 매칭 — 출발지/도착지 좌표를 기준으로 같은 방향 사용자를 매칭 실시간 채팅 — WebSocket + STOMP 기반 그룹 채팅으로 즉시 소통 모집글 관리 — 동승 모집글 작성·조회·신청·마감 등 전체 흐름 구현 커뮤니티 — 후기·평점으로 신뢰 기반 매칭 지원 맡은 역할 \u0026 기여 모집글 조회 TPS 3.8배 개선 — 조회 쿼리·인덱스 최적화로 메인 트래픽 구간 성능 개선 Pessimistic Lock 동시성 제어 — 동시에 같은 모집글에 신청이 몰릴 때 정원 초과·중복 매칭을 방지 nGrinder 부하 테스트 — 시나리오 기반 부하 테스트로 병목 구간을 식별하고 개선 효과를 정량 검증 기술 스택 Backend — Spring Boot, Spring Data JPA, WebSocket + STOMP Frontend — Vue 3 Database / Test — MariaDB, nGrinder ",
+  "wordCount" : "141",
+  "inLanguage": "ko",
+  "datePublished": "2026-03-15T00:00:00Z",
+  "dateModified": "2026-03-15T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://donghyunj.github.io/projects/tallemalle/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "정동현 | Backend Developer",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://donghyunj.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="https://donghyunj.github.io/" accesskey="h" title="정동현 (Alt + H)">정동현</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+            <li>
+                <a href="https://donghyunj.github.io/#about" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://donghyunj.github.io/#career" title="Career">
+                    <span>Career</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://donghyunj.github.io/#projects" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://donghyunj.github.io/#tech" title="Tech">
+                    <span>Tech</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://donghyunj.github.io/#contact" title="Contact">
+                    <span>Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<style>
+    .pd {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 22px 80px;
+    }
+    .pd-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin: 22px 0 26px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--secondary);
+        text-decoration: none;
+        transition: color 0.15s ease;
+    }
+    .pd-back:hover {
+        color: var(--accent);
+    }
+    .pd-banner {
+        height: 170px;
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 800;
+        font-size: 2.1rem;
+        letter-spacing: 0.05em;
+        color: #fff;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(99, 102, 241, 0.85));
+    }
+    .pd-banner.pink {
+        background: linear-gradient(135deg, rgba(236, 72, 153, 0.85), rgba(139, 92, 246, 0.85));
+    }
+    .pd-cover {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+    }
+    .pd h1 {
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin: 1.5rem 0 0.5rem;
+    }
+    .pd-summary {
+        color: var(--content);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        margin: 0 0 1rem;
+    }
+    .pd-meta {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.82rem;
+        color: var(--secondary);
+        margin-bottom: 1.1rem;
+    }
+    .pd-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin: 0 0 1.5rem;
+    }
+    .pd-tags span {
+        background: var(--accent-soft);
+        color: var(--accent-2);
+        padding: 0.25rem 0.65rem;
+        border-radius: 7px;
+        font-size: 0.76rem;
+        font-weight: 500;
+        font-family: 'JetBrains Mono', monospace;
+    }
+    .pd-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin: 0 0 2.2rem;
+        padding-bottom: 2.2rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .pd-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.62rem 1.2rem;
+        border-radius: 11px;
+        font-weight: 600;
+        font-size: 0.92rem;
+        text-decoration: none;
+        border: 1px solid var(--border);
+        transition: all 0.18s ease;
+    }
+    .pd-btn.primary {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+    }
+    .pd-btn.primary:hover {
+        background: #2563eb;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 26px -10px rgba(59, 130, 246, 0.75);
+    }
+    .pd-btn.ghost {
+        color: var(--primary);
+    }
+    .pd-btn.ghost:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-2px);
+    }
+    .pd-content {
+        line-height: 1.85;
+        color: var(--content);
+    }
+    .pd-content h2 {
+        font-size: 1.4rem;
+        margin: 2.2rem 0 0.8rem;
+        padding-bottom: 0.45rem;
+        border-bottom: 1px solid var(--border);
+        color: var(--primary);
+    }
+    .pd-content h3 {
+        font-size: 1.1rem;
+        margin: 1.5rem 0 0.5rem;
+        color: var(--primary);
+    }
+    .pd-content ul {
+        padding-left: 1.2rem;
+    }
+    .pd-content li {
+        margin: 0.4rem 0;
+    }
+    .pd-content code {
+        background: var(--code-bg);
+        padding: 0.08rem 0.38rem;
+        border-radius: 5px;
+        font-size: 0.85em;
+    }
+    .pd-content strong {
+        color: var(--primary);
+    }
+    .pd-content a {
+        color: var(--accent-2);
+    }
+</style>
+
+<article class="pd">
+    <a class="pd-back" href="/#projects">← Projects</a>
+    <img class="pd-cover" src="/images/projects/tallemalle.png" alt="TalleMalle 대표 이미지">
+
+    <h1>TalleMalle</h1>
+    <p class="pd-summary">같은 방향으로 이동하는 사용자끼리 택시비를 분담하도록 매칭해주는 실시간 위치 기반 동승 매칭 커뮤니티 서비스</p>
+    <div class="pd-meta">팀 프로젝트 · 백엔드 · 한화 BEYOND SW 캠프 4차 프로젝트</div>
+
+    
+    <div class="pd-tags"><span>Spring Boot</span><span>Spring Data JPA</span><span>WebSocket&#43;STOMP</span><span>Vue 3</span><span>MariaDB</span><span>nGrinder</span></div>
+    
+
+    
+    <div class="pd-links">
+        <a class="pd-btn primary" href="http://www.tallemalletest.kro.kr" target="_blank" rel="noopener">🔗 Live Demo</a>
+        <a class="pd-btn ghost" href="https://github.com/beyond-sw-camp/be24-4th-saraITne-TalleMalle" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    
+
+    <div class="pd-content">
+        <h2 id="개요">개요</h2>
+<p>같은 방향으로 이동하는 사용자끼리 택시비를 분담하도록 <strong>실시간으로 매칭</strong>해주는 위치 기반 동승 매칭 커뮤니티 서비스입니다. 출발지·도착지가 비슷한 사용자를 묶어 동승 모집글을 만들고, 실시간 채팅으로 빠르게 약속을 잡을 수 있습니다.</p>
+<h2 id="주요-기능">주요 기능</h2>
+<ul>
+<li><strong>위치 기반 동승 매칭</strong> — 출발지/도착지 좌표를 기준으로 같은 방향 사용자를 매칭</li>
+<li><strong>실시간 채팅</strong> — WebSocket + STOMP 기반 그룹 채팅으로 즉시 소통</li>
+<li><strong>모집글 관리</strong> — 동승 모집글 작성·조회·신청·마감 등 전체 흐름 구현</li>
+<li><strong>커뮤니티</strong> — 후기·평점으로 신뢰 기반 매칭 지원</li>
+</ul>
+<h2 id="맡은-역할--기여">맡은 역할 &amp; 기여</h2>
+<ul>
+<li><strong>모집글 조회 TPS 3.8배 개선</strong> — 조회 쿼리·인덱스 최적화로 메인 트래픽 구간 성능 개선</li>
+<li><strong>Pessimistic Lock 동시성 제어</strong> — 동시에 같은 모집글에 신청이 몰릴 때 정원 초과·중복 매칭을 방지</li>
+<li><strong>nGrinder 부하 테스트</strong> — 시나리오 기반 부하 테스트로 병목 구간을 식별하고 개선 효과를 정량 검증</li>
+</ul>
+<h2 id="기술-스택">기술 스택</h2>
+<ul>
+<li><strong>Backend</strong> — Spring Boot, Spring Data JPA, WebSocket + STOMP</li>
+<li><strong>Frontend</strong> — Vue 3</li>
+<li><strong>Database / Test</strong> — MariaDB, nGrinder</li>
+</ul>
+
+    </div>
+</article>
+
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://donghyunj.github.io/">정동현 | Backend Developer</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = '복사';
+
+        function copyingDone() {
+            copybutton.innerHTML = '복사 완료!';
+            setTimeout(() => {
+                copybutton.innerHTML = '복사';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
