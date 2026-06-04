@@ -10,7 +10,7 @@
 <meta name="description" content="같은 방향으로 이동하는 사용자끼리 택시비를 분담하도록 매칭해주는 실시간 위치 기반 동승 매칭 커뮤니티 서비스">
 <meta name="author" content="">
 <link rel="canonical" href="https://donghyunj.github.io/projects/tallemalle/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.f9a0ca057f4d9a9dc0fd2f0aace65c2546833dd82b3379d3d53a05d19ed204e9.css" integrity="sha256-&#43;aDKBX9Nmp3A/S8KrOZcJUaDPdgrM3nT1ToF0Z7SBOk=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.9a92e3d618f088ac0b0c87e5d189b6fb862acf06998fe63619d217b10a46a7f9.css" integrity="sha256-mpLj1hjwiKwLDIfl0Ym2&#43;4YqzwaZj&#43;Y2GdIXsQpGp/k=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://donghyunj.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://donghyunj.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://donghyunj.github.io/favicon-32x32.png">
@@ -81,8 +81,8 @@
   "keywords": [
     
   ],
-  "articleBody": "개요 같은 방향으로 이동하는 사용자끼리 택시비를 분담하도록 실시간으로 매칭해주는 위치 기반 동승 매칭 커뮤니티 서비스입니다. 출발지·도착지가 비슷한 사용자를 묶어 동승 모집글을 만들고, 실시간 채팅으로 빠르게 약속을 잡을 수 있습니다.\n주요 기능 위치 기반 동승 매칭 — 출발지/도착지 좌표를 기준으로 같은 방향 사용자를 매칭 실시간 채팅 — WebSocket + STOMP 기반 그룹 채팅으로 즉시 소통 모집글 관리 — 동승 모집글 작성·조회·신청·마감 등 전체 흐름 구현 커뮤니티 — 후기·평점으로 신뢰 기반 매칭 지원 맡은 역할 \u0026 기여 모집글 조회 TPS 3.8배 개선 — 조회 쿼리·인덱스 최적화로 메인 트래픽 구간 성능 개선 Pessimistic Lock 동시성 제어 — 동시에 같은 모집글에 신청이 몰릴 때 정원 초과·중복 매칭을 방지 nGrinder 부하 테스트 — 시나리오 기반 부하 테스트로 병목 구간을 식별하고 개선 효과를 정량 검증 기술 스택 Backend — Spring Boot, Spring Data JPA, WebSocket + STOMP Frontend — Vue 3 Database / Test — MariaDB, nGrinder ",
-  "wordCount" : "141",
+  "articleBody": "개요 같은 방향으로 이동하는 사용자끼리 택시비를 분담하도록 실시간으로 매칭해주는 위치 기반 동승 매칭 커뮤니티 서비스입니다. 출발지·도착지가 비슷한 사용자를 묶어 동승 모집글을 만들고, 실시간 채팅으로 빠르게 약속을 잡을 수 있습니다.\n",
+  "wordCount" : "29",
   "inLanguage": "ko",
   "datePublished": "2026-03-15T00:00:00Z",
   "dateModified": "2026-03-15T00:00:00Z",
@@ -239,9 +239,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.7rem;
-        margin: 0 0 2.2rem;
-        padding-bottom: 2.2rem;
-        border-bottom: 1px solid var(--border);
+        margin: 0 0 1.6rem;
     }
     .pd-btn {
         display: inline-flex;
@@ -307,6 +305,100 @@
     .pd-content a {
         color: var(--accent-2);
     }
+
+     
+    .pd-block {
+        margin-top: 2.8rem;
+    }
+    .pd-h2 {
+        font-size: 1.4rem;
+        margin: 0 0 1.2rem;
+        padding-bottom: 0.45rem;
+        border-bottom: 1px solid var(--border);
+        color: var(--primary);
+    }
+    .ts-flat {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .ts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
+        gap: 0.9rem;
+    }
+    .ts-cat {
+        background: var(--entry);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.1rem 1.2rem;
+    }
+    .ts-label {
+        display: inline-block;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+    }
+    .ts-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+    .ts-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: var(--accent-soft);
+        color: var(--accent-2);
+        padding: 0.3rem 0.7rem;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        font-family: 'JetBrains Mono', monospace;
+    }
+    .arch-card {
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        text-align: center;
+    }
+    .arch-card img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    .contrib-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(278px, 1fr));
+        gap: 1.1rem;
+    }
+    .contrib-card {
+        background: var(--entry);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.3rem 1.4rem;
+    }
+    .contrib-cat {
+        margin: 0 0 0.75rem;
+        font-size: 1.05rem;
+        color: var(--accent-2);
+        font-family: 'JetBrains Mono', monospace;
+    }
+    .contrib-card ul {
+        margin: 0;
+        padding-left: 1.15rem;
+    }
+    .contrib-card li {
+        margin: 0.38rem 0;
+        color: var(--content);
+        line-height: 1.6;
+    }
 </style>
 
 <article class="pd">
@@ -315,43 +407,55 @@
 
     <h1>TalleMalle</h1>
     <p class="pd-summary">같은 방향으로 이동하는 사용자끼리 택시비를 분담하도록 매칭해주는 실시간 위치 기반 동승 매칭 커뮤니티 서비스</p>
-    <div class="pd-meta">팀 프로젝트 · 백엔드 · 한화 BEYOND SW 캠프 4차 프로젝트</div>
+    <div class="pd-meta">팀 프로젝트 · 백엔드 / 프론트엔드 · 한화 BEYOND SW 캠프 4차 프로젝트</div>
 
-    
-    <div class="pd-tags"><span>Spring Boot</span><span>Spring Data JPA</span><span>WebSocket&#43;STOMP</span><span>Vue 3</span><span>MariaDB</span><span>nGrinder</span></div>
     
 
     
     <div class="pd-links">
         <a class="pd-btn primary" href="http://www.tallemalletest.kro.kr" target="_blank" rel="noopener">🔗 Live Demo</a>
-        <a class="pd-btn ghost" href="https://github.com/beyond-sw-camp/be24-4th-saraITne-TalleMalle" target="_blank" rel="noopener">GitHub</a>
+        <a class="pd-btn ghost" href="https://github.com/DongHyunj/TalleMalle" target="_blank" rel="noopener">GitHub</a>
     </div>
     
 
     <div class="pd-content">
         <h2 id="개요">개요</h2>
 <p>같은 방향으로 이동하는 사용자끼리 택시비를 분담하도록 <strong>실시간으로 매칭</strong>해주는 위치 기반 동승 매칭 커뮤니티 서비스입니다. 출발지·도착지가 비슷한 사용자를 묶어 동승 모집글을 만들고, 실시간 채팅으로 빠르게 약속을 잡을 수 있습니다.</p>
-<h2 id="주요-기능">주요 기능</h2>
-<ul>
-<li><strong>위치 기반 동승 매칭</strong> — 출발지/도착지 좌표를 기준으로 같은 방향 사용자를 매칭</li>
-<li><strong>실시간 채팅</strong> — WebSocket + STOMP 기반 그룹 채팅으로 즉시 소통</li>
-<li><strong>모집글 관리</strong> — 동승 모집글 작성·조회·신청·마감 등 전체 흐름 구현</li>
-<li><strong>커뮤니티</strong> — 후기·평점으로 신뢰 기반 매칭 지원</li>
-</ul>
-<h2 id="맡은-역할--기여">맡은 역할 &amp; 기여</h2>
-<ul>
-<li><strong>모집글 조회 TPS 3.8배 개선</strong> — 조회 쿼리·인덱스 최적화로 메인 트래픽 구간 성능 개선</li>
-<li><strong>Pessimistic Lock 동시성 제어</strong> — 동시에 같은 모집글에 신청이 몰릴 때 정원 초과·중복 매칭을 방지</li>
-<li><strong>nGrinder 부하 테스트</strong> — 시나리오 기반 부하 테스트로 병목 구간을 식별하고 개선 효과를 정량 검증</li>
-</ul>
-<h2 id="기술-스택">기술 스택</h2>
-<ul>
-<li><strong>Backend</strong> — Spring Boot, Spring Data JPA, WebSocket + STOMP</li>
-<li><strong>Frontend</strong> — Vue 3</li>
-<li><strong>Database / Test</strong> — MariaDB, nGrinder</li>
-</ul>
 
     </div>
+
+    
+    <section class="pd-block">
+        <h2 class="pd-h2">기술 스택</h2>
+        <div class="ts-flat">
+            <span class="ts-chip"><img class="tech-ico" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="" loading="lazy" width="16" height="16">Java 17</span><span class="ts-chip"><img class="tech-ico" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="" loading="lazy" width="16" height="16">Spring Boot 3.5.10</span><span class="ts-chip"><img class="tech-ico" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="" loading="lazy" width="16" height="16">Spring Data JPA</span><span class="ts-chip"><img class="tech-ico" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="" loading="lazy" width="16" height="16">Vue 3</span><span class="ts-chip"><img class="tech-ico" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" alt="" loading="lazy" width="16" height="16">Nginx</span><span class="ts-chip">WebSocket (STOMP)</span><span class="ts-chip"><img class="tech-ico" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mariadb/mariadb-original.svg" alt="" loading="lazy" width="16" height="16">MariaDB</span><span class="ts-chip"><img class="tech-ico" src="https://api.iconify.design/logos/aws-ec2.svg" alt="" loading="lazy" width="16" height="16">AWS EC2</span><span class="ts-chip"><img class="tech-ico" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" alt="" loading="lazy" width="16" height="16">Ubuntu</span><span class="ts-chip">nGrinder</span>
+        </div>
+    </section>
+    
+    <section class="pd-block">
+        <h2 class="pd-h2">TalleMalle System Architecture</h2>
+        <div class="arch-card"><img src="/images/projects/tallemalle-architecture.png" alt="시스템 아키텍처" loading="lazy"></div>
+    </section>
+    
+
+    
+    <section class="pd-block">
+        <h2 class="pd-h2">내가 기여한 부분</h2>
+        <div class="contrib-grid">
+            
+            <div class="contrib-card">
+                <h3 class="contrib-cat">Backend</h3>
+                <ul><li>모집글 CRUD API 설계 및 구현</li><li>위치 기반 검색</li><li>모집글 동시성 제어</li><li>모집글 상태 머신 설계</li><li>스케줄러 기반 자동화</li><li>Spring Event 기반 실시간 브로드캐스트</li><li>비즈니스 규칙 검증</li></ul>
+            </div>
+            
+            <div class="contrib-card">
+                <h3 class="contrib-cat">Frontend</h3>
+                <ul><li>지도 기반 메인 UI 구현 (Vue 3 &#43; Kakao Maps API)</li><li>실시간 모집글 동기화 (STOMP WebSocket)</li><li>모집글 생성 모달</li><li>슬라이딩 패널 UI</li><li>무한 스크롤 &amp; 클라이언트 필터링</li></ul>
+            </div>
+            
+        </div>
+    </section>
+    
 </article>
 
     </main>

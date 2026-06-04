@@ -1,0 +1,30 @@
+{{- /* 기술명(문자열)을 받아 공식 아이콘 <img>를 출력. 매칭 없으면 아무것도 출력 안 함(텍스트만). */ -}}
+{{- $n := lower . -}}
+{{- if in $n "ec2" -}}
+  {{- /* AWS EC2: Iconify logos 세트의 공식 로고(워드마크 없는 정사각) */ -}}
+  <img class="tech-ico" src="https://api.iconify.design/logos/aws-ec2.svg" alt="" loading="lazy" width="16" height="16">
+{{- else -}}
+{{- $base := "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/" -}}
+{{- $map := slice
+  (slice "javascript" "javascript/javascript-original")
+  (slice "typescript" "typescript/typescript-original")
+  (slice "java" "java/java-original")
+  (slice "spring" "spring/spring-original")
+  (slice "vue" "vuejs/vuejs-original")
+  (slice "nginx" "nginx/nginx-original")
+  (slice "docker" "docker/docker-original")
+  (slice "kubernetes" "kubernetes/kubernetes-plain")
+  (slice "redis" "redis/redis-original")
+  (slice "kafka" "apachekafka/apachekafka-original")
+  (slice "mariadb" "mariadb/mariadb-original")
+  (slice "mysql" "mysql/mysql-original")
+  (slice "jenkins" "jenkins/jenkins-original")
+  (slice "ubuntu" "ubuntu/ubuntu-plain")
+  (slice "git" "git/git-original")
+-}}
+{{- $icon := "" -}}
+{{- range $map -}}
+  {{- if and (eq $icon "") (in $n (index . 0)) -}}{{- $icon = index . 1 -}}{{- end -}}
+{{- end -}}
+{{- with $icon -}}<img class="tech-ico" src="{{ $base }}{{ . }}.svg" alt="" loading="lazy" width="16" height="16">{{- end -}}
+{{- end -}}

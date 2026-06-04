@@ -120,6 +120,18 @@ code, kbd, pre, tt, .mono {
     scroll-margin-top: 84px;
 }
 
+/* ===== 기술 스택 공식 아이콘 (Devicon) ===== */
+.tech-ico {
+    width: 18px;
+    height: 18px;
+    padding: 2px;
+    border-radius: 4px;
+    background: #fff;
+    flex-shrink: 0;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
 /* ===== 푸터 ===== */
 .footer {
     border-top: 1px solid var(--border);

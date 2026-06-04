@@ -79,9 +79,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.7rem;
-        margin: 0 0 2.2rem;
-        padding-bottom: 2.2rem;
-        border-bottom: 1px solid var(--border);
+        margin: 0 0 1.6rem;
     }
     .pd-btn {
         display: inline-flex;
@@ -147,6 +145,100 @@
     .pd-content a {
         color: var(--accent-2);
     }
+
+    /* ===== 추가 섹션 (기술 스택 / 아키텍처 / 기여) ===== */
+    .pd-block {
+        margin-top: 2.8rem;
+    }
+    .pd-h2 {
+        font-size: 1.4rem;
+        margin: 0 0 1.2rem;
+        padding-bottom: 0.45rem;
+        border-bottom: 1px solid var(--border);
+        color: var(--primary);
+    }
+    .ts-flat {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .ts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
+        gap: 0.9rem;
+    }
+    .ts-cat {
+        background: var(--entry);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.1rem 1.2rem;
+    }
+    .ts-label {
+        display: inline-block;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+    }
+    .ts-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+    .ts-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: var(--accent-soft);
+        color: var(--accent-2);
+        padding: 0.3rem 0.7rem;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        font-family: 'JetBrains Mono', monospace;
+    }
+    .arch-card {
+        background: #ffffff;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        text-align: center;
+    }
+    .arch-card img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    .contrib-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(278px, 1fr));
+        gap: 1.1rem;
+    }
+    .contrib-card {
+        background: var(--entry);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.3rem 1.4rem;
+    }
+    .contrib-cat {
+        margin: 0 0 0.75rem;
+        font-size: 1.05rem;
+        color: var(--accent-2);
+        font-family: 'JetBrains Mono', monospace;
+    }
+    .contrib-card ul {
+        margin: 0;
+        padding-left: 1.15rem;
+    }
+    .contrib-card li {
+        margin: 0.38rem 0;
+        color: var(--content);
+        line-height: 1.6;
+    }
 </style>
 
 <article class="pd">
@@ -182,5 +274,36 @@
     <div class="pd-content">
         {{ .Content }}
     </div>
+
+    {{ with .Params.techStack }}
+    <section class="pd-block">
+        <h2 class="pd-h2">기술 스택</h2>
+        <div class="ts-flat">
+            {{ range . }}<span class="ts-chip">{{ partial "tech-icon.html" . }}{{ . }}</span>{{ end }}
+        </div>
+    </section>
+    {{ end }}
+
+    {{- $arch := or (resources.Get (printf "images/projects/%s-architecture.png" .File.BaseFileName)) (resources.Get (printf "images/projects/%s-architecture.jpg" .File.BaseFileName)) (resources.Get (printf "images/projects/%s-architecture.webp" .File.BaseFileName)) -}}
+    {{ with $arch }}
+    <section class="pd-block">
+        <h2 class="pd-h2">TalleMalle System Architecture</h2>
+        <div class="arch-card"><img src="{{ .RelPermalink }}" alt="시스템 아키텍처" loading="lazy"></div>
+    </section>
+    {{ end }}
+
+    {{ with .Params.contributions }}
+    <section class="pd-block">
+        <h2 class="pd-h2">내가 기여한 부분</h2>
+        <div class="contrib-grid">
+            {{ range . }}
+            <div class="contrib-card">
+                <h3 class="contrib-cat">{{ .category }}</h3>
+                <ul>{{ range .items }}<li>{{ . }}</li>{{ end }}</ul>
+            </div>
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
 </article>
 {{ end }}
