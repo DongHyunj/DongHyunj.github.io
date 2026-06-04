@@ -255,9 +255,9 @@
     <h1>{{ .Title }}</h1>
     {{ with .Params.summary }}<p class="pd-summary">{{ . }}</p>{{ end }}
     <div class="pd-meta">
-        {{- with .Params.role }}{{ . }}{{ end -}}
-        {{- if and .Params.role .Params.period }} · {{ end -}}
         {{- with .Params.period }}{{ . }}{{ end -}}
+        {{- if and .Params.role .Params.period }} · {{ end -}}
+        {{- with .Params.role }}{{ . }}{{ end -}}
     </div>
 
     {{ with .Params.tech }}

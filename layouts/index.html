@@ -26,20 +26,24 @@
         border: 1px solid var(--border);
         transition: all 0.18s ease;
     }
+
     .btn-primary {
         background: var(--accent);
         border-color: var(--accent);
         color: #fff !important;
     }
+
     .btn-primary:hover {
         background: #2563eb;
         transform: translateY(-2px);
         box-shadow: 0 10px 26px -10px rgba(59, 130, 246, 0.75);
     }
+
     .btn-ghost {
         background: rgba(255, 255, 255, 0.02);
         color: var(--primary);
     }
+
     .btn-ghost:hover {
         border-color: var(--accent);
         color: var(--accent);
@@ -55,6 +59,7 @@
         -webkit-backdrop-filter: blur(7px);
         transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     }
+
     .card:hover {
         border-color: rgba(96, 165, 250, 0.6);
         box-shadow: 0 16px 42px -24px rgba(59, 130, 246, 0.6);
@@ -64,6 +69,7 @@
     .section {
         margin-top: 88px;
     }
+
     .sec-title {
         font-size: clamp(1.8rem, 4.5vw, 2.45rem);
         font-weight: 800;
@@ -71,6 +77,7 @@
         letter-spacing: -0.025em;
         margin: 0 0 0.5rem;
     }
+
     .sec-sub {
         text-align: center;
         color: var(--secondary);
@@ -89,6 +96,7 @@
         gap: 2rem;
         padding-top: 56px;
     }
+
     .hero-left {
         display: flex;
         flex-direction: column;
@@ -96,11 +104,14 @@
         gap: 1.1rem;
         flex-shrink: 0;
     }
+
     .hero-photo {
         width: 168px;
-        aspect-ratio: 1 / 1;   /* 폭이 줄어도 정사각 유지 → 항상 원형 */
+        aspect-ratio: 1 / 1;
+        /* 폭이 줄어도 정사각 유지 → 항상 원형 */
         height: auto;
-        flex-shrink: 0;        /* flex 안에서 찌그러지지 않게 */
+        flex-shrink: 0;
+        /* flex 안에서 찌그러지지 않게 */
         max-width: 100%;
         border-radius: 50%;
         object-fit: cover;
@@ -108,6 +119,7 @@
         box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12),
             0 22px 55px -20px rgba(59, 130, 246, 0.55);
     }
+
     .hero-photo-ph {
         display: flex;
         align-items: center;
@@ -118,6 +130,7 @@
         font-size: 1.55rem;
         letter-spacing: 0.02em;
     }
+
     .hero-loc {
         display: inline-flex;
         align-items: center;
@@ -125,14 +138,17 @@
         font-size: 0.85rem;
         color: var(--secondary);
     }
+
     .hero-loc svg {
         width: 15px;
         height: 15px;
     }
+
     .hero-social {
         display: flex;
         gap: 0.6rem;
     }
+
     .hero-social a {
         width: 42px;
         height: 42px;
@@ -143,18 +159,22 @@
         color: var(--primary);
         transition: all 0.16s ease;
     }
+
     .hero-social a:hover {
         border-color: var(--accent);
         color: var(--accent);
         transform: translateY(-2px);
     }
+
     .hero-social svg {
         width: 20px;
         height: 20px;
     }
+
     .hero-body {
         min-width: 0;
     }
+
     .hero-name {
         font-size: clamp(2.4rem, 6.5vw, 4rem);
         font-weight: 900;
@@ -162,23 +182,27 @@
         line-height: 1.04;
         margin: 0;
     }
+
     .hero-role {
         margin: 0.75rem 0 0;
         font-size: 1.05rem;
         font-weight: 600;
         color: var(--accent-2);
     }
+
     .hero-role .mono {
         color: var(--secondary);
         font-size: 0.92rem;
         font-weight: 500;
     }
+
     .hero-intro {
         margin: 1.4rem 0 1.7rem;
         color: var(--content);
         line-height: 1.85;
         max-width: 640px;
     }
+
     .hero-actions {
         display: flex;
         flex-wrap: wrap;
@@ -193,6 +217,7 @@
             gap: 3.2rem;
             padding-top: 64px;
         }
+
         .hero-actions {
             justify-content: flex-start;
         }
@@ -204,6 +229,7 @@
         max-width: 820px;
         margin: 0 auto;
     }
+
     .timeline::before {
         content: "";
         position: absolute;
@@ -213,10 +239,12 @@
         width: 2px;
         background: linear-gradient(180deg, var(--accent), rgba(59, 130, 246, 0.04));
     }
+
     .tl-item {
         position: relative;
         padding: 0 0 1.4rem 40px;
     }
+
     .tl-item::before {
         content: "";
         position: absolute;
@@ -229,9 +257,11 @@
         border: 3px solid var(--accent);
         box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
     }
+
     .tl-card {
         padding: 1.3rem 1.4rem;
     }
+
     .tl-head {
         display: flex;
         flex-wrap: wrap;
@@ -239,21 +269,25 @@
         justify-content: space-between;
         gap: 0.4rem;
     }
+
     .tl-head h3 {
         margin: 0;
         font-size: 1.15rem;
     }
+
     .tl-date {
         font-family: 'JetBrains Mono', monospace;
         font-size: 0.78rem;
         color: var(--accent-2);
         white-space: nowrap;
     }
+
     .tl-org {
         color: var(--secondary);
         font-size: 0.9rem;
         margin: 0.3rem 0 0.75rem;
     }
+
     .tl-bullets {
         margin: 0;
         padding-left: 1.15rem;
@@ -261,6 +295,7 @@
         line-height: 1.75;
         font-size: 0.93rem;
     }
+
     .tl-bullets li {
         margin: 0.28rem 0;
     }
@@ -274,10 +309,8 @@
         max-width: 800px;
         margin: 0 auto 2.8rem;
     }
+
     .tech-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
         font-family: 'JetBrains Mono', monospace;
         font-size: 0.85rem;
         font-weight: 500;
@@ -289,19 +322,23 @@
         transition: all 0.16s ease;
         cursor: default;
     }
+
     .tech-badge:hover {
         border-color: var(--accent);
         color: var(--accent);
         transform: translateY(-2px);
     }
+
     .tech-detail {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
         gap: 1.1rem;
     }
+
     .tech-cat {
         padding: 1.4rem;
     }
+
     .tech-cat .label {
         display: inline-block;
         font-family: 'JetBrains Mono', monospace;
@@ -312,12 +349,14 @@
         text-transform: uppercase;
         margin-bottom: 0.7rem;
     }
+
     .tech-cat p {
         margin: 0.35rem 0;
         color: var(--content);
         line-height: 1.72;
         font-size: 0.9rem;
     }
+
     .tech-cat code {
         background: var(--code-bg);
         padding: 0.06rem 0.36rem;
@@ -331,6 +370,7 @@
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 1.4rem;
     }
+
     .project-card {
         display: flex;
         flex-direction: column;
@@ -339,9 +379,11 @@
         color: inherit;
         cursor: pointer;
     }
+
     .project-card:hover {
         transform: translateY(-3px);
     }
+
     .proj-more {
         margin-top: 1rem;
         font-family: 'JetBrains Mono', monospace;
@@ -349,9 +391,11 @@
         font-weight: 600;
         color: var(--accent-2);
     }
+
     .project-card:hover .proj-more {
         color: var(--accent);
     }
+
     .proj-banner {
         height: 92px;
         display: flex;
@@ -364,30 +408,36 @@
         color: #fff;
         background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(99, 102, 241, 0.85));
     }
+
     .proj-cover {
         display: block;
         width: 100%;
         aspect-ratio: 16 / 9;
         object-fit: cover;
     }
+
     .project-card:nth-child(2) .proj-banner {
         background: linear-gradient(135deg, rgba(236, 72, 153, 0.85), rgba(139, 92, 246, 0.85));
     }
+
     .proj-body {
         padding: 1.35rem;
         display: flex;
         flex-direction: column;
         flex: 1;
     }
+
     .proj-body h3 {
         margin: 0 0 0.2rem;
         font-size: 1.25rem;
     }
+
     .proj-type {
         font-family: 'JetBrains Mono', monospace;
         font-size: 0.74rem;
         color: var(--secondary);
     }
+
     .proj-desc {
         color: var(--content);
         line-height: 1.7;
@@ -395,12 +445,14 @@
         margin: 0.8rem 0;
         flex: 1;
     }
+
     .tech-tags {
         display: flex;
         flex-wrap: wrap;
         gap: 0.4rem;
         margin: 0.4rem 0 0.2rem;
     }
+
     .tech-tags span {
         background: var(--accent-soft);
         color: var(--accent-2);
@@ -410,11 +462,13 @@
         font-weight: 500;
         font-family: 'JetBrains Mono', monospace;
     }
+
     .proj-links {
         display: flex;
         gap: 0.6rem;
         margin-top: 1rem;
     }
+
     .btn-link {
         display: inline-flex;
         align-items: center;
@@ -428,6 +482,7 @@
         border-radius: 9px;
         transition: all 0.16s ease;
     }
+
     .btn-link:hover {
         border-color: var(--accent);
         color: var(--accent);
@@ -441,24 +496,29 @@
         max-width: 720px;
         margin: 0 auto;
     }
+
     .badge-card {
         padding: 1.6rem 1.4rem;
         text-align: center;
     }
+
     .badge-ic {
         font-size: 2rem;
         margin-bottom: 0.55rem;
     }
+
     .badge-card h3 {
         margin: 0.2rem 0;
         font-size: 1.1rem;
     }
+
     .badge-card p {
         margin: 0;
         color: var(--secondary);
         font-size: 0.83rem;
         font-family: 'JetBrains Mono', monospace;
     }
+
     .two-col {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -466,13 +526,16 @@
         max-width: 820px;
         margin: 0 auto;
     }
+
     .edu-card {
         padding: 1.35rem 1.45rem;
     }
+
     .edu-card h3 {
         margin: 0 0 0.35rem;
         font-size: 1.05rem;
     }
+
     .edu-card p {
         margin: 0;
         color: var(--secondary);
@@ -485,16 +548,19 @@
         padding: 1.4rem;
         overflow-x: auto;
     }
+
     .gh-chart {
         width: 100%;
         min-width: 680px;
         display: block;
     }
+
     .gh-stats {
         display: flex;
         justify-content: center;
         margin-top: 1.2rem;
     }
+
     .gh-stats img {
         max-width: 100%;
     }
@@ -504,6 +570,7 @@
         text-align: center;
         padding-top: 76px;
     }
+
     .contact-actions {
         display: flex;
         flex-wrap: wrap;
@@ -516,7 +583,8 @@
 <!-- =================== HERO / ABOUT =================== -->
 <section id="about" class="hero">
     <div class="hero-left">
-        {{- $photo := or (resources.Get "images/profile.jpg") (resources.Get "images/profile.jpeg") (resources.Get "images/profile.png") (resources.Get "images/profile.webp") -}}
+        {{- $photo := or (resources.Get "images/profile.jpg") (resources.Get "images/profile.jpeg") (resources.Get
+        "images/profile.png") (resources.Get "images/profile.webp") -}}
         {{- with $photo }}
         <img class="hero-photo" src="{{ .RelPermalink }}" alt="정동현 프로필 사진">
         {{- else }}
@@ -524,7 +592,8 @@
         {{- end }}
 
         <div class="hero-loc">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
             </svg>
@@ -533,13 +602,24 @@
 
         <div class="hero-social">
             <a href="https://github.com/DongHyunj" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z" />
+                </svg>
             </a>
             <a href="https://donghyun0826.tistory.com/" target="_blank" rel="noopener" title="Blog" aria-label="Blog">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                </svg>
             </a>
             <a href="mailto:deatytim@gmail.com" title="Email" aria-label="Email">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="m22 7-10 6L2 7" />
+                </svg>
             </a>
         </div>
     </div>
@@ -551,7 +631,8 @@
         </p>
         <p class="hero-intro">낯선 기술도 공식 문서와 실제 구현으로 직접 부딪히며 빠르게 익히고, 블로그에 학습한 내용을 정리하며 깊이를 더합니다.
             계층과 도메인 경계를 먼저 그린 뒤 코드를 작성하고, 측정 가능한 데이터를 바탕으로
-            <strong>"이 코드가 정말 최선인가"</strong>를 끊임없이 묻습니다.</p>
+            <strong>"이 코드가 정말 최선인가"</strong>를 끊임없이 묻습니다.
+        </p>
         <div class="hero-actions">
             <a class="btn btn-primary" href="mailto:deatytim@gmail.com">📧 Contact Me</a>
             <a class="btn btn-ghost" href="https://github.com/DongHyunj" target="_blank" rel="noopener">GitHub</a>
@@ -569,12 +650,12 @@
             <div class="card tl-card">
                 <div class="tl-head">
                     <h3>한화시스템 BEYOND SW 캠프 24기</h3>
-                    <span class="tl-date">2025.12.09 – 2026.06.08</span>
+                    <span class="tl-date">2025.12.09 - 2026.06.08</span>
                 </div>
                 <div class="tl-org">엔터프라이즈급 백엔드 심화 과정 · Java · Spring Boot · MSA · Kubernetes</div>
                 <ul class="tl-bullets">
-                    <li><strong>TalleMalle</strong> — 모집글 조회 TPS 3.8배 개선, Pessimistic Lock으로 동승 매칭 동시성 제어</li>
-                    <li><strong>Nexus</strong> — 프랜차이즈 공급망 주문관리(SCM) 시스템, 통계 MSA 5단계 진화 주도</li>
+                    <li><strong>TalleMalle</strong> - 모집글 조회 TPS 3.8배 개선, Pessimistic Lock으로 동승 매칭 동시성 제어</li>
+                    <li><strong>Nexus</strong> - 프랜차이즈 공급망 주문관리(SCM) 시스템, 통계 MSA 5단계 진화 주도</li>
                     <li>Kafka·Redis Cluster·Kubernetes 기반 무중단 배포 환경 직접 구성</li>
                 </ul>
             </div>
@@ -583,7 +664,7 @@
             <div class="card tl-card">
                 <div class="tl-head">
                     <h3>KH 정보교육원</h3>
-                    <span class="tl-date">2023.03.20 – 2023.09.21</span>
+                    <span class="tl-date">2023.03.20 - 2023.09.21</span>
                 </div>
                 <div class="tl-org">Java/Spring 기반 백엔드 개발자 양성 과정 수료</div>
                 <ul class="tl-bullets">
@@ -598,31 +679,37 @@
 <!-- =================== FEATURED PROJECTS =================== -->
 <section id="projects" class="section">
     <h2 class="sec-title grad-text">Featured Projects</h2>
-    <p class="sec-sub">설계부터 배포·부하 테스트까지 직접 다룬 프로젝트 — 카드를 누르면 상세 페이지로 이동합니다</p>
+    <p class="sec-sub">설계부터 배포·부하 테스트까지 직접 다룬 프로젝트 - 카드를 누르면 상세 페이지로 이동합니다</p>
     <div class="project-grid">
         <a class="card project-card" href="/projects/tallemalle/">
-            {{- $cover := or (resources.Get "images/projects/tallemalle.png") (resources.Get "images/projects/tallemalle.jpg") (resources.Get "images/projects/tallemalle.webp") -}}
-            {{ if $cover }}<img class="proj-cover" src="{{ $cover.RelPermalink }}" alt="TalleMalle 대표 이미지" loading="lazy">{{ else }}<div class="proj-banner">TalleMalle</div>{{ end }}
+            {{- $cover := or (resources.Get "images/projects/tallemalle.png") (resources.Get
+            "images/projects/tallemalle.jpg") (resources.Get "images/projects/tallemalle.webp") -}}
+            {{ if $cover }}<img class="proj-cover" src="{{ $cover.RelPermalink }}" alt="TalleMalle 대표 이미지"
+                loading="lazy">{{ else }}<div class="proj-banner">TalleMalle</div>{{ end }}
             <div class="proj-body">
                 <h3>TalleMalle</h3>
                 <span class="proj-type">Team · 실시간 위치 기반 매칭</span>
                 <p class="proj-desc">같은 방향으로 이동하는 사용자끼리 택시비를 분담하도록 매칭해주는 실시간 위치 기반 동승 매칭 커뮤니티 서비스.</p>
                 <div class="tech-tags">
-                    <span>Spring Boot</span><span>JPA</span><span>WebSocket+STOMP</span><span>Vue 3</span><span>MariaDB</span><span>nGrinder</span>
+                    <span>Spring Boot</span><span>JPA</span><span>WebSocket+STOMP</span><span>Vue
+                        3</span><span>MariaDB</span><span>nGrinder</span>
                 </div>
                 <span class="proj-more">자세히 보기 →</span>
             </div>
         </a>
 
         <a class="card project-card" href="/projects/nexus/">
-            {{- $cover := or (resources.Get "images/projects/nexus.png") (resources.Get "images/projects/nexus.jpg") (resources.Get "images/projects/nexus.webp") -}}
-            {{ if $cover }}<img class="proj-cover" src="{{ $cover.RelPermalink }}" alt="Nexus 대표 이미지" loading="lazy">{{ else }}<div class="proj-banner">Nexus</div>{{ end }}
+            {{- $cover := or (resources.Get "images/projects/nexus.png") (resources.Get "images/projects/nexus.jpg")
+            (resources.Get "images/projects/nexus.webp") -}}
+            {{ if $cover }}<img class="proj-cover" src="{{ $cover.RelPermalink }}" alt="Nexus 대표 이미지" loading="lazy">{{
+            else }}<div class="proj-banner">Nexus</div>{{ end }}
             <div class="proj-body">
                 <h3>Nexus (SCM)</h3>
                 <span class="proj-type">Team · B2B SaaS 공급망</span>
                 <p class="proj-desc">프랜차이즈 본사가 가맹점의 매출·재고·발주를 통합 관리하는 B2B 공급망 주문관리 시스템(SaaS).</p>
                 <div class="tech-tags">
-                    <span>Spring Boot</span><span>SSE</span><span>Kafka</span><span>Redis Cluster</span><span>Kubernetes</span><span>k6</span>
+                    <span>Spring Boot</span><span>SSE</span><span>Kafka</span><span>Redis
+                        Cluster</span><span>Kubernetes</span><span>k6</span>
                 </div>
                 <span class="proj-more">자세히 보기 →</span>
             </div>
@@ -635,45 +722,60 @@
     <h2 class="sec-title grad-text">Tech Arsenal</h2>
     <p class="sec-sub">주로 다루는 기술 스택</p>
     <div class="tech-grid">
-        {{- range (slice "Java" "Spring Boot" "Spring Data JPA" "Kafka" "Redis" "Kubernetes" "Docker" "Jenkins" "MariaDB" "Vue.js" "JavaScript" "AWS EC2" "nGrinder" "k6" "Git") }}
-        <span class="tech-badge">{{ partial "tech-icon.html" . }}{{ . }}</span>
-        {{- end }}
+        <span class="tech-badge">{{ partial "tech-icon.html" "Java" }}Java</span>
+        <span class="tech-badge">{{ partial "tech-icon.html" "Spring Boot" }}Spring Boot</span>
+        <span class="tech-badge">{{ partial "tech-icon.html" "Spring Data JPA" }}Spring Data JPA</span>
+        <span class="tech-badge">{{ partial "tech-icon.html" "Kafka" }}Kafka</span>
+        <span class="tech-badge">{{ partial "tech-icon.html" "Redis" }}Redis</span>
+        <span class="tech-badge">{{ partial "tech-icon.html" "Kubernetes" }}Kubernetes</span>
+        <span class="tech-badge">{{ partial "tech-icon.html" "Docker" }}Docker</span>
+        <span class="tech-badge">{{ partial "tech-icon.html" "Jenkins" }}Jenkins</span>
+        <span class="tech-badge">{{ partial "tech-icon.html" "MariaDB" }}MariaDB</span>
+        <span class="tech-badge">{{ partial "tech-icon.html" "Vue.js" }}Vue.js</span>
+        <span class="tech-badge">{{ partial "tech-icon.html" "JavaScript" }}JavaScript</span>
+        <span class="tech-badge">{{ partial "tech-icon.html" "AWS EC2" }}AWS EC2</span>
+        <span class="tech-badge">{{ partial "tech-icon.html" "nGrinder" }}nGrinder</span>
+        <span class="tech-badge">{{ partial "tech-icon.html" "k6" }}k6</span>
+        <span class="tech-badge">{{ partial "tech-icon.html" "Git" }}Git</span>
     </div>
 
     <div class="tech-detail">
         <div class="card tech-cat">
             <span class="label">Language</span>
-            <p><b>Java</b> — Java 17, Stream·Lambda·Optional 함수형 기법, Enum 타입 안전성, 계층형 아키텍처.</p>
-            <p><b>JavaScript</b> — ES6+, Axios REST 모듈화, SSE 실시간 알림.</p>
+            <p><b>Java</b> - Java 17, Stream·Lambda·Optional 함수형 기법, Enum 타입 안전성, 계층형 아키텍처.</p>
+            <p><b>JavaScript</b> - ES6+, Axios REST 모듈화, SSE 실시간 알림.</p>
         </div>
         <div class="card tech-cat">
             <span class="label">Frontend</span>
-            <p><b>Vue.js</b> — Vue 3 Composition API, Pinia 상태 관리, Navigation Guard 라우팅, Chart.js 시각화.</p>
-            <p><b>HTML/CSS</b> — Tailwind CSS, Grid/Flexbox 반응형.</p>
+            <p><b>Vue.js</b> - Vue 3 Composition API, Pinia 상태 관리, Navigation Guard 라우팅, Chart.js 시각화.</p>
+            <p><b>HTML/CSS</b> - Tailwind CSS, Grid/Flexbox 반응형.</p>
         </div>
         <div class="card tech-cat">
             <span class="label">Backend</span>
-            <p><b>Spring Boot</b> — 3.x RESTful API, BaseResponse·GlobalExceptionHandler 표준화. 통계 MSA 5단계 진화 주도,
-                <code>@TransactionalEventListener(AFTER_COMMIT)</code>로 Kafka phantom 4건→0건, SSE 직접 구현.</p>
-            <p><b>Spring Data JPA</b> — JOIN FETCH·@BatchSize·@EntityGraph로 N+1·카테시안 곱 해결, 비관적 잠금 동시성 제어,
-                <code>@SQLInsert ON DUPLICATE KEY UPDATE</code>로 Consumer race condition 해결(누락 500건→0건).</p>
+            <p><b>Spring Boot</b> - 3.x RESTful API, BaseResponse·GlobalExceptionHandler 표준화. 통계 MSA 5단계 진화 주도,
+                <code>@TransactionalEventListener(AFTER_COMMIT)</code>로 Kafka phantom 4건→0건, SSE 직접 구현.
+            </p>
+            <p><b>Spring Data JPA</b> - JOIN FETCH·@BatchSize·@EntityGraph로 N+1·카테시안 곱 해결, 비관적 잠금 동시성 제어,
+                <code>@SQLInsert ON DUPLICATE KEY UPDATE</code>로 Consumer race condition 해결(누락 500건→0건).
+            </p>
         </div>
         <div class="card tech-cat">
             <span class="label">DevOps &amp; Infra</span>
-            <p><b>Kubernetes</b> — Blue/Green 무중단 배포, StatefulSet, Nginx Ingress TLS. master+worker 5노드 직접 구성,
+            <p><b>Kubernetes</b> - Blue/Green 무중단 배포, StatefulSet, Nginx Ingress TLS. master+worker 5노드 직접 구성,
                 Longhorn, Redis Cluster(3+3) 직접 구축(Hash Tag 슬롯 설계).</p>
-            <p><b>Docker · Jenkins</b> — Multi-stage 빌드·Kaniko, K8s Pod Agent CI/CD, Blue/Green 자동화.</p>
-            <p><b>nGrinder · k6 · AWS EC2</b> — 부하 테스트 병목 분석, EC2 기반 K8s 클러스터 운영.</p>
+            <p><b>Docker · Jenkins</b> - Multi-stage 빌드·Kaniko, K8s Pod Agent CI/CD, Blue/Green 자동화.</p>
+            <p><b>nGrinder · k6 · AWS EC2</b> - 부하 테스트 병목 분석, EC2 기반 K8s 클러스터 운영.</p>
         </div>
         <div class="card tech-cat">
             <span class="label">Database</span>
-            <p><b>MariaDB</b> — 10개+ 테이블 스키마 설계·정규화, DATE_FORMAT 통계 집계, COALESCE NULL 안전 처리,
+            <p><b>MariaDB</b> - 10개+ 테이블 스키마 설계·정규화, DATE_FORMAT 통계 집계, COALESCE NULL 안전 처리,
                 비관적 잠금. K8s StatefulSet + Longhorn 운영.</p>
         </div>
         <div class="card tech-cat">
             <span class="label">Tools &amp; Collaboration</span>
-            <p><b>Git &amp; GitHub</b> — Git Flow, 컨벤션 커밋, PR/Issue 템플릿, GitHub Actions Discord 알림·GPT-4o 코드 리뷰 워크플로우.</p>
-            <p><b>IntelliJ · Notion · Discord</b> — 주 IDE, 협업 문서, 스크럼/리뷰 커뮤니케이션.</p>
+            <p><b>Git &amp; GitHub</b> - Git Flow, 컨벤션 커밋, PR/Issue 템플릿, GitHub Actions Discord 알림·GPT-4o 코드 리뷰 워크플로우.
+            </p>
+            <p><b>IntelliJ · Notion · Discord</b> - 주 IDE, 협업 문서, 스크럼/리뷰 커뮤니케이션.</p>
         </div>
     </div>
 </section>
@@ -715,11 +817,14 @@
 <section id="github" class="section">
     <h2 class="sec-title grad-text">GitHub Contributions</h2>
     <p class="sec-sub">@DongHyunj</p>
-    <a class="card gh-card" href="https://github.com/DongHyunj" target="_blank" rel="noopener" style="display:block;text-decoration:none;">
-        <img class="gh-chart" src="https://ghchart.rshah.org/3b82f6/DongHyunj" alt="DongHyunj GitHub 기여 그래프" loading="lazy" onerror="this.closest('.gh-card').style.display='none'">
+    <a class="card gh-card" href="https://github.com/DongHyunj" target="_blank" rel="noopener"
+        style="display:block;text-decoration:none;">
+        <img class="gh-chart" src="https://ghchart.rshah.org/3b82f6/DongHyunj" alt="DongHyunj GitHub 기여 그래프"
+            loading="lazy" onerror="this.closest('.gh-card').style.display='none'">
     </a>
     <div class="gh-stats">
-        <img src="https://github-readme-stats.vercel.app/api?username=DongHyunj&show_icons=true&hide_border=true&count_private=true&bg_color=00000000&title_color=60a5fa&text_color=cbd2dc&icon_color=3b82f6" alt="DongHyunj GitHub 통계" loading="lazy" onerror="this.parentElement.style.display='none'">
+        <img src="https://github-readme-stats.vercel.app/api?username=DongHyunj&show_icons=true&hide_border=true&count_private=true&bg_color=00000000&title_color=60a5fa&text_color=cbd2dc&icon_color=3b82f6"
+            alt="DongHyunj GitHub 통계" loading="lazy" onerror="this.parentElement.style.display='none'">
     </div>
 </section>
 

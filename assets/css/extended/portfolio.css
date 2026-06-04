@@ -120,6 +120,15 @@ code, kbd, pre, tt, .mono {
     scroll-margin-top: 84px;
 }
 
+/* ===== 기술 스택 배지 (아이콘 왼쪽 정렬) — index.html <style>가 포매터로 바뀌어도 유지 ===== */
+.tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
 /* ===== 기술 스택 공식 아이콘 (Devicon) ===== */
 .tech-ico {
     width: 18px;

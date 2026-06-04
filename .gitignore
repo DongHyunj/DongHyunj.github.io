@@ -1,0 +1,14 @@
+# Hugo 빌드 산출물 & 캐시 (GitHub Actions가 매번 새로 빌드/배포)
+/public/
+/resources/
+.hugo_build.lock
+
+# 로컬 도구 설정 (머신 전용)
+/.claude/
+
+# 사이트에 안 쓰는 원본·작업 이미지 (로컬에만 보관)
+/_local/
+
+# OS / 에디터
+.DS_Store
+Thumbs.db
