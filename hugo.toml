@@ -35,7 +35,7 @@ theme = "PaperMod"
   identifier = "career"
   name = "Career"
   url = "/#career"
-  weight = 20
+  weight = 40
 
 [[menu.main]]
   identifier = "projects"
@@ -47,7 +47,7 @@ theme = "PaperMod"
   identifier = "tech"
   name = "Tech"
   url = "/#tech"
-  weight = 40
+  weight = 20
 
 [[menu.main]]
   identifier = "contact"
