@@ -666,40 +666,33 @@
     <div class="tech-detail">
         <div class="card tech-cat">
             <span class="label">Language</span>
-            <p><b>Java</b> - Java 17, Stream·Lambda·Optional 함수형 기법, Enum 타입 안전성, 계층형 아키텍처.</p>
-            <p><b>JavaScript</b> - ES6+, Axios REST 모듈화, SSE 실시간 알림.</p>
+            <p><b>Java</b> - Java 17, 함수형(Stream·Lambda·Optional), 계층형 아키텍처.</p>
+            <p><b>JavaScript</b> - ES6+, Axios REST 모듈화.</p>
         </div>
         <div class="card tech-cat">
             <span class="label">Frontend</span>
-            <p><b>Vue.js</b> - Vue 3 Composition API, Pinia 상태 관리, Navigation Guard 라우팅, Chart.js 시각화.</p>
-            <p><b>HTML/CSS</b> - Tailwind CSS, Grid/Flexbox 반응형.</p>
+            <p><b>Vue.js</b> - Vue 3 Composition API, Pinia, Chart.js 시각화.</p>
+            <p><b>HTML/CSS</b> - Tailwind, Grid/Flexbox 반응형.</p>
         </div>
         <div class="card tech-cat">
             <span class="label">Backend</span>
-            <p><b>Spring Boot</b> - 3.x RESTful API, BaseResponse·GlobalExceptionHandler 표준화. 통계 MSA 5단계 진화 주도,
-                <code>@TransactionalEventListener(AFTER_COMMIT)</code>로 Kafka phantom 4건→0건, SSE 직접 구현.
-            </p>
-            <p><b>Spring Data JPA</b> - JOIN FETCH·@BatchSize·@EntityGraph로 N+1·카테시안 곱 해결, 비관적 잠금 동시성 제어,
-                <code>@SQLInsert ON DUPLICATE KEY UPDATE</code>로 Consumer race condition 해결(누락 500건→0건).
-            </p>
+            <p><b>Spring Boot</b> - RESTful API 표준화, 통계 MSA 진화, <code>@TransactionalEventListener(AFTER_COMMIT)</code> 이벤트 정합성.</p>
+            <p><b>Spring Data JPA</b> - N+1·카테시안 곱 해결(JOIN FETCH·@BatchSize), 비관적 잠금 동시성 제어.</p>
         </div>
         <div class="card tech-cat">
             <span class="label">DevOps &amp; Infra</span>
-            <p><b>Kubernetes</b> - Blue/Green 무중단 배포, StatefulSet, Nginx Ingress TLS. master+worker 5노드 직접 구성,
-                Longhorn, Redis Cluster(3+3) 직접 구축(Hash Tag 슬롯 설계).</p>
-            <p><b>Docker · Jenkins</b> - Multi-stage 빌드·Kaniko, K8s Pod Agent CI/CD, Blue/Green 자동화.</p>
-            <p><b>nGrinder · k6 · AWS EC2</b> - 부하 테스트 병목 분석, EC2 기반 K8s 클러스터 운영.</p>
+            <p><b>Kubernetes</b> - Blue/Green 무중단 배포, master+worker 5노드·Redis Cluster 직접 구성.</p>
+            <p><b>Docker · Jenkins</b> - Multi-stage 빌드, K8s 기반 CI/CD 자동화.</p>
+            <p><b>nGrinder · k6 · AWS EC2</b> - 부하 테스트 병목 분석.</p>
         </div>
         <div class="card tech-cat">
             <span class="label">Database</span>
-            <p><b>MariaDB</b> - 10개+ 테이블 스키마 설계·정규화, DATE_FORMAT 통계 집계, COALESCE NULL 안전 처리,
-                비관적 잠금. K8s StatefulSet + Longhorn 운영.</p>
+            <p><b>MariaDB</b> - 스키마 설계·정규화, 통계 집계, 비관적 잠금.</p>
         </div>
         <div class="card tech-cat">
             <span class="label">Tools &amp; Collaboration</span>
-            <p><b>Git &amp; GitHub</b> - Git Flow, 컨벤션 커밋, PR/Issue 템플릿, GitHub Actions Discord 알림·GPT-4o 코드 리뷰 워크플로우.
-            </p>
-            <p><b>IntelliJ · Notion · Discord</b> - 주 IDE, 협업 문서, 스크럼/리뷰 커뮤니케이션.</p>
+            <p><b>Git &amp; GitHub</b> - Git Flow, 컨벤션 커밋, GitHub Actions CI.</p>
+            <p><b>IntelliJ · Notion · Discord</b> - IDE·협업·커뮤니케이션.</p>
         </div>
     </div>
 </section>
@@ -707,7 +700,7 @@
 <!-- =================== FEATURED PROJECTS =================== -->
 <section id="projects" class="section">
     <h2 class="sec-title grad-text">Featured Projects</h2>
-    <p class="sec-sub">설계부터 배포·부하 테스트까지 직접 다룬 프로젝트 - 카드를 누르면 상세 페이지로 이동합니다</p>
+    <p class="sec-sub">설계부터 배포·부하 테스트까지 직접 다룬 프로젝트</p>
     <div class="project-grid">
         <a class="card project-card" href="/projects/tallemalle/">
             {{- $cover := or (resources.Get "images/projects/tallemalle.png") (resources.Get
