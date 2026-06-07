@@ -188,6 +188,25 @@
     .pd-content tbody tr:nth-child(even) td {
         background: rgba(255, 255, 255, 0.02);
     }
+    .pd-content .highlight,
+    .pd-content pre.chroma {
+        background: #0b1020 !important;
+    }
+    .pd-content pre.chroma {
+        padding: 0.9rem 1.1rem;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow-x: auto;
+        margin: 1.1rem 0;
+        font-size: 0.84rem;
+        line-height: 1.55;
+    }
+    .pd-content pre code {
+        background: transparent;
+        padding: 0;
+        border-radius: 0;
+        font-size: inherit;
+    }
 
     /* ===== 추가 섹션 (기술 스택 / 아키텍처 / 기여) ===== */
     .pd-block {
