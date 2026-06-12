@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" font-family="'Pretendard','Malgun Gothic','Apple SD Gothic Neo',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- 배경 카드 -->
+  <rect x="1" y="1" width="1498" height="498" rx="14" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+
+  <!-- 제목 -->
+  <text x="40" y="56" font-size="21" font-weight="700" fill="#111827">자동 발주 제안 흐름 - POS 마감부터 본사 승인까지</text>
+
+  <!-- ① 점주 -->
+  <rect x="40" y="120" width="200" height="130" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+  <circle cx="40" cy="120" r="15" fill="#111827"/>
+  <text x="40" y="125" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="140" y="156" font-size="16" font-weight="700" fill="#111827" text-anchor="middle">점주 (가맹점 POS)</text>
+  <text x="140" y="182" font-size="14" fill="#374151" text-anchor="middle">영업 마감 버튼 클릭</text>
+  <text x="140" y="207" font-size="13" fill="#334155" text-anchor="middle" font-family="Consolas,monospace">POST /pos/close</text>
+
+  <!-- 화살표 1→2 -->
+  <line x1="240" y1="185" x2="296" y2="185" stroke="#475569" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- ② AutoOrderService -->
+  <rect x="300" y="120" width="300" height="130" rx="10" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <circle cx="300" cy="120" r="15" fill="#111827"/>
+  <text x="300" y="125" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+  <text x="450" y="156" font-size="16" font-weight="700" fill="#111827" text-anchor="middle">AutoOrderService</text>
+  <text x="450" y="182" font-size="14" fill="#374151" text-anchor="middle">Spring Boot + Spring AI</text>
+  <text x="450" y="207" font-size="14" fill="#374151" text-anchor="middle">데이터 수집 후 프롬프트 구성</text>
+
+  <!-- 화살표 2→3 -->
+  <text x="625" y="172" font-size="11.5" fill="#64748b" text-anchor="middle">프롬프트</text>
+  <line x1="600" y1="185" x2="646" y2="185" stroke="#475569" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- ③ GPT-4o -->
+  <rect x="650" y="120" width="260" height="130" rx="10" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+  <circle cx="650" cy="120" r="15" fill="#111827"/>
+  <text x="650" y="125" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="780" y="156" font-size="16" font-weight="700" fill="#111827" text-anchor="middle">OpenAI GPT-4o</text>
+  <text x="780" y="182" font-size="14" fill="#374151" text-anchor="middle">ChatClient 호출</text>
+  <text x="780" y="207" font-size="14" fill="#374151" text-anchor="middle">품목별 발주 수량 제안</text>
+
+  <!-- 화살표 3→4 -->
+  <text x="940" y="172" font-size="11.5" fill="#64748b" text-anchor="middle">JSON</text>
+  <line x1="910" y1="185" x2="966" y2="185" stroke="#475569" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- ④ 발주서 저장 -->
+  <rect x="970" y="120" width="250" height="130" rx="10" fill="#ffe6cc" stroke="#d79b00" stroke-width="2"/>
+  <circle cx="970" cy="120" r="15" fill="#111827"/>
+  <text x="970" y="125" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+  <text x="1095" y="156" font-size="16" font-weight="700" fill="#111827" text-anchor="middle">발주서 저장 (MariaDB)</text>
+  <text x="1095" y="182" font-size="14" fill="#374151" text-anchor="middle">Orders: AUTO · WAITING</text>
+  <text x="1095" y="207" font-size="14" fill="#374151" text-anchor="middle">+ OrdersItem 품목 상세</text>
+
+  <!-- 화살표 4→5 -->
+  <line x1="1220" y1="185" x2="1276" y2="185" stroke="#475569" stroke-width="2.5" marker-end="url(#arr)"/>
+
+  <!-- ⑤ 본사 -->
+  <rect x="1280" y="120" width="190" height="130" rx="10" fill="#dae8fc" stroke="#6c8ebf" stroke-width="2"/>
+  <circle cx="1280" cy="120" r="15" fill="#111827"/>
+  <text x="1280" y="125" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+  <text x="1375" y="156" font-size="16" font-weight="700" fill="#111827" text-anchor="middle">본사 발주 관리</text>
+  <text x="1375" y="182" font-size="14" fill="#374151" text-anchor="middle">자동 발주 제안 목록</text>
+  <text x="1375" y="207" font-size="14" fill="#374151" text-anchor="middle">검토 후 승인 · 수정</text>
+
+  <!-- 점선 연결 -->
+  <line x1="450" y1="250" x2="450" y2="318" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="780" y1="250" x2="780" y2="318" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4"/>
+
+  <!-- 부가: 프롬프트 데이터 -->
+  <rect x="300" y="320" width="300" height="150" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="450" y="347" font-size="14" font-weight="700" fill="#111827" text-anchor="middle">프롬프트에 담는 데이터</text>
+  <text x="318" y="374" font-size="12.5" fill="#374151">· 재고 현황 (StoreInventory)</text>
+  <text x="318" y="396" font-size="12.5" fill="#374151">· 재고 변동 이력 (InventoryMovement)</text>
+  <text x="318" y="418" font-size="12.5" fill="#374151">· 과거 발주 이력 (Orders)</text>
+  <text x="318" y="440" font-size="12.5" fill="#374151">· 요일 - 금·토는 주말 배송 불가 반영</text>
+
+  <!-- 부가: 응답 안정화 -->
+  <rect x="650" y="320" width="260" height="110" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="780" y="347" font-size="14" font-weight="700" fill="#111827" text-anchor="middle">응답 안정화 장치</text>
+  <text x="668" y="374" font-size="12.5" fill="#374151">· temperature 0.3 - 수량 일관성</text>
+  <text x="668" y="396" font-size="12.5" fill="#374151">· 응답은 JSON 형식만 허용</text>
+</svg>

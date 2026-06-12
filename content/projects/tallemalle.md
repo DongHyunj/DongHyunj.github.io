@@ -88,9 +88,9 @@ contributions:
 | **최종** (JOIN FETCH + @BatchSize) | **2회로 고정** |
 
 - 모집글 수와 무관하게 쿼리 **2회로 고정**
-- nGrinder 동일 조건 재측정: **TPS 2.3 → 약 9** (약 4배 ↑), **평균 응답 시간 21.3초 → 약 5초** (약 4배 ↓)
+- nGrinder 동일 조건 재측정: **TPS 2.3 → 8.7** (약 3.8배 ↑), **평균 응답 시간 21.3초 → 약 5.9초** (약 72% 단축)
 
-![nGrinder TPS (개선 후) - 약 9](images/projects/tallemalle/ngrinder-tps-after.png)
+![nGrinder TPS (개선 후) - 평균 8.7](images/projects/tallemalle/ngrinder-tps-after.png)
 
 ### 트러블슈팅 2. 지도 전체 조회 → 화면 경계 조회 + 디바운싱
 

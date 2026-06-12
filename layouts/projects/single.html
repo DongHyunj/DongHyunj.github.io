@@ -65,21 +65,6 @@
         color: var(--secondary);
         margin-bottom: 1.1rem;
     }
-    .pd-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.45rem;
-        margin: 0 0 1.5rem;
-    }
-    .pd-tags span {
-        background: var(--accent-soft);
-        color: var(--accent-2);
-        padding: 0.25rem 0.65rem;
-        border-radius: 7px;
-        font-size: 0.76rem;
-        font-weight: 500;
-        font-family: 'JetBrains Mono', monospace;
-    }
     .pd-links {
         display: flex;
         flex-wrap: wrap;
@@ -389,10 +374,6 @@
         {{- with .Params.role }}{{ . }}{{ end -}}
     </div>
 
-    {{ with .Params.tech }}
-    <div class="pd-tags">{{ range . }}<span>{{ . }}</span>{{ end }}</div>
-    {{ end }}
-
     {{ if or .Params.demo .Params.repo }}
     <div class="pd-links">
         {{ with .Params.demo }}<a class="pd-btn primary" href="{{ . }}" target="_blank" rel="noopener">🔗 Live Demo</a>{{ end }}
@@ -412,7 +393,7 @@
     {{- $arch := or (resources.Get (printf "images/projects/%s-architecture.png" .File.BaseFileName)) (resources.Get (printf "images/projects/%s-architecture.jpg" .File.BaseFileName)) (resources.Get (printf "images/projects/%s-architecture.webp" .File.BaseFileName)) -}}
     {{ with $arch }}
     <section class="pd-block">
-        <h2 class="pd-h2">TalleMalle System Architecture</h2>
+        <h2 class="pd-h2">시스템 아키텍처</h2>
         <div class="arch-card"><img src="{{ .RelPermalink }}" alt="시스템 아키텍처" loading="lazy"></div>
     </section>
     {{ end }}
