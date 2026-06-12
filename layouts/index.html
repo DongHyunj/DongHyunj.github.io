@@ -565,6 +565,54 @@
         max-width: 100%;
     }
 
+    /* ===== BLOG ===== */
+    .blog-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+    }
+
+    .blog-row {
+        display: flex;
+        align-items: baseline;
+        gap: 1.1rem;
+        padding: 0.85rem 1.15rem;
+        text-decoration: none;
+        transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+
+    .blog-row:hover {
+        transform: translateX(4px);
+        border-color: var(--accent);
+    }
+
+    .blog-date {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.78rem;
+        color: var(--secondary);
+        flex-shrink: 0;
+    }
+
+    .blog-title {
+        color: var(--primary);
+        font-weight: 600;
+        font-size: 0.95rem;
+        line-height: 1.45;
+    }
+
+    .blog-more {
+        display: inline-block;
+        margin-top: 1rem;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--accent-2);
+        text-decoration: none;
+    }
+
+    .blog-more:hover {
+        color: var(--accent-pink);
+    }
+
     /* ===== CONTACT ===== */
     .contact {
         text-align: center;
@@ -820,6 +868,40 @@
             alt="DongHyunj GitHub 통계" loading="lazy" onerror="this.parentElement.style.display='none'">
     </div>
 </section>
+
+<!-- =================== BLOG (티스토리 RSS, 빌드 시점 로드) =================== -->
+{{- $blogItems := slice -}}
+{{- with try (resources.GetRemote "https://donghyun0826.tistory.com/rss") -}}
+    {{- with .Err -}}
+        {{- warnf "tistory rss fetch failed: %s" . -}}
+    {{- end -}}
+    {{- with .Value -}}
+        {{- $rss := transform.Unmarshal .Content -}}
+        {{- with $rss.channel.item -}}
+            {{- /* item이 1개면 map으로 와서 slice로 감싼다 */ -}}
+            {{- if reflect.IsSlice . -}}
+                {{- $blogItems = first 5 . -}}
+            {{- else -}}
+                {{- $blogItems = slice . -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{ if gt (len $blogItems) 0 }}
+<section id="blog" class="section">
+    <h2 class="sec-title grad-text">Latest Posts</h2>
+    <p class="sec-sub">기술 블로그 - 학습과 회고의 기록</p>
+    <div class="blog-list">
+        {{ range $blogItems }}
+        <a class="card blog-row" href="{{ .link }}" target="_blank" rel="noopener">
+            <span class="blog-date">{{ with .pubDate }}{{ $pd := replaceRE `, (\d) ` `, 0${1} ` . }}{{ dateFormat "2006.01.02" (time.AsTime $pd) }}{{ end }}</span>
+            <span class="blog-title">{{ .title }}</span>
+        </a>
+        {{ end }}
+    </div>
+    <a class="blog-more" href="https://donghyun0826.tistory.com/" target="_blank" rel="noopener">전체 글 보기 →</a>
+</section>
+{{ end }}
 
 <!-- =================== CONTACT CTA =================== -->
 <section id="contact" class="section contact">
