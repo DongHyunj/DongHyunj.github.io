@@ -750,23 +750,6 @@
     <h2 class="sec-title grad-text">Featured Projects</h2>
     <p class="sec-sub">설계부터 배포·부하 테스트까지 직접 다룬 프로젝트</p>
     <div class="project-grid">
-        <a class="card project-card" href="/projects/tallemalle/">
-            {{- $cover := or (resources.Get "images/projects/tallemalle.png") (resources.Get
-            "images/projects/tallemalle.jpg") (resources.Get "images/projects/tallemalle.webp") -}}
-            {{ if $cover }}<img class="proj-cover" src="{{ $cover.RelPermalink }}" alt="TalleMalle 대표 이미지"
-                loading="lazy">{{ else }}<div class="proj-banner">TalleMalle</div>{{ end }}
-            <div class="proj-body">
-                <h3>TalleMalle</h3>
-                <span class="proj-type">Team · 실시간 위치 기반 매칭</span>
-                <p class="proj-desc">같은 방향으로 이동하는 사용자끼리 택시비를 분담하도록 매칭해주는 실시간 위치 기반 동승 매칭 커뮤니티 서비스.</p>
-                <div class="tech-tags">
-                    <span>Spring Boot</span><span>JPA</span><span>WebSocket+STOMP</span><span>Vue
-                        3</span><span>MariaDB</span><span>nGrinder</span>
-                </div>
-                <span class="proj-more">자세히 보기 →</span>
-            </div>
-        </a>
-
         <a class="card project-card" href="/projects/nexus/">
             {{- $cover := or (resources.Get "images/projects/nexus.png") (resources.Get "images/projects/nexus.jpg")
             (resources.Get "images/projects/nexus.webp") -}}
@@ -779,6 +762,23 @@
                 <div class="tech-tags">
                     <span>Spring Boot</span><span>SSE</span><span>Kafka</span><span>Redis
                         Cluster</span><span>Kubernetes</span><span>k6</span>
+                </div>
+                <span class="proj-more">자세히 보기 →</span>
+            </div>
+        </a>
+
+        <a class="card project-card" href="/projects/tallemalle/">
+            {{- $cover := or (resources.Get "images/projects/tallemalle.png") (resources.Get
+            "images/projects/tallemalle.jpg") (resources.Get "images/projects/tallemalle.webp") -}}
+            {{ if $cover }}<img class="proj-cover" src="{{ $cover.RelPermalink }}" alt="TalleMalle 대표 이미지"
+                loading="lazy">{{ else }}<div class="proj-banner">TalleMalle</div>{{ end }}
+            <div class="proj-body">
+                <h3>TalleMalle</h3>
+                <span class="proj-type">Team · 실시간 위치 기반 매칭</span>
+                <p class="proj-desc">같은 방향으로 이동하는 사용자끼리 택시비를 분담하도록 매칭해주는 실시간 위치 기반 동승 매칭 커뮤니티 서비스.</p>
+                <div class="tech-tags">
+                    <span>Spring Boot</span><span>JPA</span><span>WebSocket+STOMP</span><span>Vue
+                        3</span><span>MariaDB</span><span>nGrinder</span>
                 </div>
                 <span class="proj-more">자세히 보기 →</span>
             </div>

@@ -6,7 +6,7 @@ summary: "같은 방향으로 이동하는 사용자끼리 택시비를 분담�
 role: "팀원 5명 · 백엔드 담당"
 period: "2026.01 ~ 2026.04 (BEYOND SW 캠프 24기 3차 프로젝트)"
 accent: "blue"
-demo: "http://www.tallemalletest.kro.kr"
+demo: "https://tallemalle.deatytim.com"
 repo: "https://github.com/DongHyunj/TalleMalle"
 techStack: ["Java 17", "Spring Boot 3.5.10", "Spring Data JPA", "Vue 3", "Nginx", "WebSocket (STOMP)", "MariaDB", "AWS EC2", "Ubuntu", "nGrinder"]
 contributions:

@@ -25,6 +25,7 @@ contributions:
       - "Redis Cluster (Master 3 + Replica 3) 직접 구축"
       - "Kubernetes Blue/Green 무중단 배포 구성·검증"
       - "StatefulSet·Ingress TLS 포함 5노드 클러스터 운영"
+      - "Prometheus·Grafana 운영 모니터링 구성 (가용성 프로빙·Consumer Lag)"
 ---
 
 ## 담당 영역
@@ -227,3 +228,15 @@ stats_sales_today_latency  ✓ 'p(95)<1000' p(95)=154.24ms
 ### 무중단 배포 - Blue/Green 슬롯 전환 검증
 
 본사와 가맹점이 업무 시간 내내 사용하는 B2B 서비스라 **배포 중단은 곧 업무 마비**로 이어집니다. Kubernetes 위에 Blue/Green 두 슬롯을 두고 새 버전을 대기 슬롯에 올린 뒤 트래픽을 전환하는 방식으로 무중단 배포를 구성했습니다. 전환 중 0.1초 간격으로 반복 호출한 curl에서 **502·503 응답은 0건**이었고, 프론트엔드 화면에 현재 슬롯명을 표시해 전환 시점을 눈으로도 확인했습니다.
+
+{{< clip src="nexus-bluegreen-backend.mp4" caption="백엔드 Blue/Green 무중단 배포 - 슬롯 전환 시연" >}}
+
+{{< clip src="nexus-bluegreen-frontend.mp4" caption="프론트엔드 Blue/Green 무중단 배포 - 화면의 현재 슬롯명으로 전환 확인" >}}
+
+### 운영 모니터링 - 배포한 서비스의 가용성을 지표로 본다
+
+배포가 끝이 아니라, 운영 중인 서비스가 실제로 살아 있는지를 지표로 지켜봐야 했습니다. Prometheus의 Blackbox Exporter로 운영 서비스의 HTTP·HTTPS 엔드포인트를 주기적으로 프로빙하고 그 결과를 Grafana 대시보드로 시각화하는 **가용성 모니터링을 구성**했습니다. 단순히 떠 있는지 여부를 넘어 HTTP 상태 코드, SSL 인증서 만료 일수, TLS 버전, 프로브 응답 시간, DNS 조회 시간까지 한 화면에서 추적했습니다.
+
+운영 기간(5/11 ~ 6/4) 동안 메인 서비스의 가용성은 **99.4%** 수준으로 측정됐고, 배포·재시작 구간을 포함한 헬스 체크 엔드포인트(`/actuator/health`)는 96.9%였습니다. 통계 파이프라인의 Consumer Lag을 Grafana로 추적했던 것(트러블슈팅 2)이 애플리케이션 **안쪽** 지표였다면, 이 대시보드는 사용자가 실제로 닿는 **바깥쪽** 가용성입니다. 장애를 추측이 아니라 지표로 먼저 감지하는 환경을 안팎으로 갖춘 셈입니다.
+
+![운영 가용성 모니터링 - Blackbox Exporter HTTP 프로빙을 Grafana로 시각화. 5/11~6/4 메인 가용성 99.4%, 상태 200·TLS 1.3·SSL 만료 62일·프로브 0.13s 추적](images/projects/nexus/grafana-uptime.webp)
