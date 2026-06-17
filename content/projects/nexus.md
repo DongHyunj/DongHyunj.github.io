@@ -8,7 +8,7 @@ period: "2026.04.10 ~ 2026.06.08 (BEYOND SW 캠프 24기 최종 프로젝트)"
 accent: "pink"
 demo: "https://www.nexusscm.kro.kr"
 repo: "https://github.com/beyond-sw-camp/be24-fin-Fiveguys-Nexus"
-techStack: ["Java 17", "Spring Boot", "Kafka", "Redis Cluster", "Kubernetes", "SSE", "Vue 3", "Nginx", "k6"]
+techStack: ["Java 17", "Spring Boot", "Kafka", "Redis Cluster", "Docker", "Kubernetes", "Jenkins", "SSE", "Vue 3", "Nginx", "Prometheus", "Grafana", "k6"]
 contributions:
   - category: "Backend"
     items:
@@ -30,7 +30,7 @@ contributions:
 
 ## 담당 영역
 
-저는 팀장으로서 본사 **대시보드**, **발주 관리**, **실시간 알림**, **매출 통계 집계** 네 도메인과 배포 인프라를 담당했습니다. 대시보드는 운영 현황을 한눈에 보여주는 입구이고, 발주와 알림은 그 위에서 일상 업무가 흐르는 기능이며, 통계는 모든 결과를 집계하는 시스템입니다. 앞의 세 기능을 먼저 정리하고, 가장 깊게 파고들었던 통계 시스템의 8단계 고도화를 이어서 다룹니다.
+저는 팀장으로서 본사 **대시보드**, **발주 관리**, **실시간 알림**, **매출 통계 집계** 네 도메인과 배포 인프라를 담당했습니다. 대시보드는 운영 현황을 한눈에 보여주는 입구이고, 발주와 알림은 그 위에서 일상 업무가 흐르는 기능이며, 통계는 모든 결과를 집계하는 시스템입니다. 앞의 세 기능을 먼저 정리하고, 통계 시스템을 MSA와 Redis를 통해 고도화를 진행했습니다.
 
 ### 대시보드 - 본사와 가맹점의 운영 현황을 한 화면에
 
@@ -41,14 +41,14 @@ contributions:
 - **위쪽 요약** - 매장 수, 발주서, 위험 재고, 배송 현황
 - **아래 목록** - 주간 발주·이상 발주 건수, 위험 재고·배송 지연 목록
 
-{{< clip src="nexus-dashboard-hq.mp4" autoplay="true" caption="본사 대시보드 - 전국 가맹점의 매출·발주·재고 현황과 위험 재고·배송 지연 목록" >}}
+{{< clip src="nexus-dashboard-hq.mp4" caption="본사 대시보드 - 전국 가맹점의 매출·발주·재고 현황과 위험 재고·배송 지연 목록" >}}
 
 **가맹점 대시보드** - 본인 매장에 필요한 데이터만 추려서 보여줍니다.
 
 - **위쪽 요약** - 금일 매출, 미확정 발주서, 위험 재고, 정산 현황
 - **아래 목록** - 일별 매출 추이, 나의 배송 현황, 미확정 발주·재고 위험 목록
 
-{{< clip src="nexus-dashboard-store.mp4" autoplay="true" caption="가맹점 대시보드 - 본인 매장의 매출·발주·정산 요약과 일별 매출 추이" >}}
+{{< clip src="nexus-dashboard-store.mp4" caption="가맹점 대시보드 - 본인 매장의 매출·발주·정산 요약과 일별 매출 추이" >}}
 
 각 목록은 데이터가 많을수록 반응이 느려질 수 있어, **Slice 기반 무한 스크롤**로 처음 10개를 불러오고 스크롤이 끝에 닿으면 10개씩 추가로 불러오도록 구현해 조회 부담을 줄였습니다.
 
@@ -72,11 +72,11 @@ contributions:
 - **왜 Spring AI인가** - LLM 호출을 별도 Python 서비스로 빼는 대신 Spring AI를 채택한 것은, 팀 전원이 Java를 쓰는 상황에서 학습 비용과 운영 부담을 최소화하기 위해서였습니다.
 - **왜 temperature 0.3인가** - 발주서는 정확한 수량이 중요한 문서라, 같은 재고 상태에서 매번 다른 추천이 나오면 안 되기 때문입니다.
 
-{{< clip src="nexus-order-auto.mp4" autoplay="true" caption="자동 발주 제안 - AI가 만든 발주 초안을 본사가 검토·승인하는 화면" >}}
+{{< clip src="nexus-order-auto.mp4" caption="자동 발주 제안 - AI가 만든 발주 초안을 본사가 검토·승인하는 화면" >}}
 
 다만 AI 제안은 마감 시점의 기본 초안일 뿐, 점주가 품목과 수량을 직접 골라 발주할 수도 있습니다. 최종 판단은 사람이 합니다.
 
-{{< clip src="nexus-order-manual.mp4" autoplay="true" caption="가맹점 수동 발주 - 점주가 품목·수량을 직접 선택해 발주" >}}
+{{< clip src="nexus-order-manual.mp4" caption="가맹점 수동 발주 - 점주가 품목·수량을 직접 선택해 발주" >}}
 
 #### 목록 조회 최적화 - 같은 N+1이라도 처방은 다르다
 
@@ -91,15 +91,35 @@ contributions:
 
 앞서 만든 택시 동승 매칭 서비스 **TalleMalle**에서는 1:N(한 모집글에 여러 참여자) 관계라 @BatchSize가 맞았지만, 여기서는 **매장명·날짜 같은 동적 검색을 살려야 했기에 유연한 @EntityGraph**를 골랐습니다. **같은 N+1이라도 연관의 모양과 쿼리 방식에 따라 처방이 다릅니다.** 이 한 줄로 목록의 N+1을 해결해 **10건 조회 기준 쿼리 11회 → 1회**로 줄였고, 같은 방식을 상세 조회·일괄 승인 등 다른 지점에도 적용했습니다.
 
-{{< clip src="nexus-order-history.mp4" autoplay="true" caption="발주 이력 - 검색 조건과 무한 스크롤로 과거 발주를 조회" >}}
+{{< clip src="nexus-order-history.mp4" caption="발주 이력 - 검색 조건과 무한 스크롤로 과거 발주를 조회" >}}
 
-{{< clip src="nexus-order-abnormal.mp4" autoplay="true" caption="이상 발주 - 비정상 패턴의 발주를 모니터링" >}}
+{{< clip src="nexus-order-abnormal.mp4" caption="이상 발주 - 비정상 패턴의 발주를 모니터링" >}}
 
 ---
 
 ### 실시간 알림 - 알림에는 WebSocket이 아니라 SSE
 
-발주 상태가 바뀌면 관련 화면에 즉시 알림이 떠야 했습니다. TalleMalle에서는 채팅이라는 양방향 요구 때문에 WebSocket(STOMP)을 선택했지만, 알림은 **서버에서 클라이언트로 흐르는 단방향**입니다. 양방향 프로토콜을 깔 이유가 없고, SSE는 HTTP 위에서 그대로 동작해 인프라 추가가 없으며 브라우저가 재연결을 자동으로 처리합니다. 그래서 EventSource 구독과 브로드캐스트 구조의 **SSE 알림을 직접 구현**했습니다. 알림이 저장되는 순간 연결된 클라이언트에 곧바로 push되는 구조입니다. 같은 실시간이라도 통신의 방향이 기술을 결정한다는 것을, 두 프로젝트에서 서로 다른 선택을 해 보며 체득했습니다.
+본사 관리자와 가맹점주들은 배송, 재고 위험, 발주 상태 변경처럼 변경 사항이 있을 때마다 화면에 즉시 알림이 떠야 했습니다. 앞선 프로젝트인 TalleMalle에서는 팀원이 채팅 기능 때문에 WebSocket(STOMP)을 선택했지만, 알림은 **서버에서 클라이언트로 흐르는 단방향**입니다. 굳이 양방향 프로토콜을 선택할 이유가 없고, SSE는 HTTP 위에서 그대로 동작해 인프라 추가가 없으며 브라우저가 재연결을 자동으로 처리합니다. 그래서 **EventSource 구독과 브로드캐스트 구조의 SSE**를 선택했습니다.
+
+본사와 가맹점이 받는 알림은 관점이 다릅니다.
+
+- **본사** - 전국 가맹점을 감시하는 관점: 재고 부족 · 유통기한 임박 · 이상 발주 · 배송 지연
+- **가맹점** - 자기 매장 관점: 위 항목에 더해 배송 시작 · 배송 완료까지
+
+{{< clip src="nexus-notify-hq.mp4" caption="본사 알림 - 재고·유통기한·이상 발주·배송 지연을 전 관리자에게 실시간 broadcast" >}}
+
+{{< clip src="nexus-notify-store.mp4" caption="가맹점 알림 - 자기 매장 관련 알림만 해당 점주에게 타게팅 push" >}}
+
+#### 알림은 두 경로로 발생합니다
+
+- **이벤트 즉시** - 발주·재고 변동·배송 상태가 바뀌는 순간, 해당 서비스가 알림을 생성하고 DB 저장과 동시에 SSE로 push합니다.
+- **스케줄 배치** - `NotificationScheduler`가 cron으로 점검합니다. 유통기한 임박(매일 7시), 배송 지연 감지(매일 8시), 배송 상태 자동 전환·완료(10분마다), 오래된 알림 정리(읽음 30일·안읽음 90일).
+
+전송 구조는 대상에 맞춰 다르게 설계했습니다.
+
+- **본사** - 단일 emitter 리스트(`CopyOnWriteArrayList`)에 모아 접속한 모든 관리자에게 `broadcast`
+- **가맹점** - `ConcurrentHashMap<매장 IDX, emitter>`로 관리해 해당 매장 구독자에게만 `send`
+- 두 경우 모두 연결 30분 타임아웃, 완료·타임아웃·에러 시 emitter를 정리해 누수를 막고, 같은 날 동일 알림은 중복 발송을 차단했습니다.
 
 ---
 
