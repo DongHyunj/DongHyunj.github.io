@@ -1,0 +1,3 @@
+{{- $a := resources.Get (printf "images/%s" ($.Get "a")) -}}
+{{- $b := resources.Get (printf "images/%s" ($.Get "b")) -}}
+<div class="fig-compare"><figure>{{- with $a }}<img src="{{ .RelPermalink }}" alt="{{ $.Get "capA" }}" loading="lazy">{{- end }}<figcaption>{{ $.Get "capA" }}</figcaption></figure><figure>{{- with $b }}<img src="{{ .RelPermalink }}" alt="{{ $.Get "capB" }}" loading="lazy">{{- end }}<figcaption>{{ $.Get "capB" }}</figcaption></figure></div>

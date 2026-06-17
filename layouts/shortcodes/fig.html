@@ -1,0 +1,2 @@
+{{- $img := resources.Get (printf "images/%s" ($.Get "src")) -}}
+<figure class="md-fig">{{- with $img }}<img src="{{ .RelPermalink }}" alt="{{ $.Get "caption" }}" loading="lazy">{{- end }}{{- with $.Get "caption" }}<figcaption>{{ . }}</figcaption>{{- end }}</figure>
