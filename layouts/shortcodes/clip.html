@@ -1,4 +1,5 @@
 {{- $v := resources.Get (printf "videos/%s" (.Get "src")) -}}
 {{- with $v -}}
-<figure class="md-video"><video src="{{ .RelPermalink }}" muted loop playsinline controls preload="metadata"></video>{{- with $.Get "caption" }}<figcaption>{{ . }}</figcaption>{{- end }}</figure>
+{{- $auto := eq ($.Get "autoplay") "true" -}}
+<figure class="md-video"><video src="{{ .RelPermalink }}" muted loop playsinline controls {{ if $auto }}autoplay preload="auto"{{ else }}preload="metadata"{{ end }}></video>{{- with $.Get "caption" }}<figcaption>{{ . }}</figcaption>{{- end }}</figure>
 {{- end -}}
