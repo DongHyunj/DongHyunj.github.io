@@ -6,7 +6,7 @@ summary: "프랜차이즈 본사가 가맹점의 매출·재고·발주를 통�
 role: "팀원 5명 · 팀장 · 백엔드 / 인프라 담당"
 period: "2026.04.10 ~ 2026.06.08 (BEYOND SW 캠프 24기 최종 프로젝트)"
 accent: "pink"
-demo: "https://www.nexusscm.kro.kr"
+demo: "https://nexus.deatytim.com"
 repo: "https://github.com/beyond-sw-camp/be24-fin-Fiveguys-Nexus"
 techStack: ["Java 17", "Spring Boot", "Kafka", "Redis Cluster", "Docker", "Kubernetes", "Jenkins", "SSE", "Vue 3", "Nginx", "Prometheus", "Grafana", "k6"]
 contributions:
@@ -27,6 +27,10 @@ contributions:
       - "StatefulSet·Ingress TLS 포함 5노드 클러스터 운영"
       - "Prometheus·Grafana 운영 모니터링 구성 (가용성 프로빙·Consumer Lag)"
 ---
+
+> **라이브 데모** — [nexus.deatytim.com](https://nexus.deatytim.com) · 본사 `admin@theventi.co.kr` / 가맹점 `store0001@theventi.co.kr` (비밀번호 공통 `password123`)
+>
+> 데모는 무료 인프라(1 vCPU · 1GB) 제약에 맞춰 아래 MSA 구성을 **모듈 경계는 유지한 채 단일 배포 단위로 통합**한 스탠드얼론 빌드입니다. 본문의 아키텍처·성능 검증 기록은 실제 Kubernetes 기반 MSA 운영 환경에서 수행한 것입니다.
 
 ## 담당 영역
 
