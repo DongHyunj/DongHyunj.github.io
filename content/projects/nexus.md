@@ -38,9 +38,9 @@ contributions:
 
 ## 시스템 아키텍처
 
-5노드 Kubernetes 클러스터 위에 전체 시스템을 올렸습니다. Nginx가 진입점에서 정적 서빙과 API 라우팅을 맡고, 모놀리식과 POS·통계 MSA가 Spring Cloud Gateway·Eureka로 연결되며, 서비스 사이의 이벤트와 집계는 Kafka·Redis가 담당합니다. git push부터 Jenkins·Kaniko 이미지 빌드, Blue/Green 무중단 배포, Prometheus·Grafana 모니터링까지 하나의 파이프라인으로 묶여 있습니다.
+5노드 Kubernetes 클러스터 위에 전체 시스템을 올렸습니다. Nginx가 진입점에서 정적 서빙과 API 라우팅을 맡고, 모놀리식과 결제·대시보드·POS·발주·AI 서비스가 Spring Cloud Gateway·Eureka로 연결되며, 서비스 사이의 이벤트와 집계는 Kafka·Redis가 담당합니다. git push부터 Jenkins·Kaniko 이미지 빌드, Blue/Green 무중단 배포, Prometheus·Grafana 모니터링까지 하나의 파이프라인으로 묶여 있습니다.
 
-{{< fig src="projects/nexus/system-architecture.png" caption="전체 시스템 아키텍처 - Kubernetes 5노드 위 Nginx 진입점, 모놀리식 + POS·통계 MSA(Gateway·Eureka), Kafka·Redis, 서비스별 MariaDB, Jenkins·Kaniko CI/CD, Prometheus·Grafana 모니터링" >}}
+{{< fig src="projects/nexus/system-architecture.png" caption="전체 시스템 아키텍처 - Kubernetes 위 Nginx 진입점, 모놀리식 + MSA(Spring Cloud Gateway·Eureka 라우팅), Kafka·Redis, Jenkins·Kaniko CI/CD, Prometheus·Grafana 모니터링" >}}
 
 ## 운영 환경 - 배포한 서비스의 가용성을 지표로 본다
 
