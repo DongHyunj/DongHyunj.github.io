@@ -439,6 +439,7 @@
     {{ end }}
 
     {{- $arch := or (resources.Get (printf "images/projects/%s-architecture.png" .File.BaseFileName)) (resources.Get (printf "images/projects/%s-architecture.jpg" .File.BaseFileName)) (resources.Get (printf "images/projects/%s-architecture.webp" .File.BaseFileName)) -}}
+    {{ if .Params.archInBody }}{{ $arch = false }}{{ end }}
     {{ with $arch }}
     <section class="pd-block">
         <h2 class="pd-h2">시스템 아키텍처</h2>
@@ -489,6 +490,7 @@
     </script>
     {{ end }}
 
+    {{ if not .Params.contribInBody }}
     {{ with .Params.contributions }}
     <section class="pd-block">
         <h2 class="pd-h2">내가 기여한 부분</h2>
@@ -501,6 +503,7 @@
             {{ end }}
         </div>
     </section>
+    {{ end }}
     {{ end }}
 
     {{ with .Content }}

@@ -1,0 +1,9 @@
+<h2>내가 기여한 부분</h2>
+<div class="contrib-grid">
+    {{ range .Page.Params.contributions }}
+    <div class="contrib-card">
+        <h3 class="contrib-cat">{{ .category }}</h3>
+        <ul>{{ range .items }}<li>{{ . }}</li>{{ end }}</ul>
+    </div>
+    {{ end }}
+</div>
